@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FY25 CS異動 分析とマッチング</title>
-    <!-- Tailwind CSSの読み込み -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts "M PLUS 1p"の読み込み -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;500;700&display=swap" rel="stylesheet">
@@ -45,16 +43,13 @@
 
     <div class="container mx-auto px-4 py-8 md:py-16">
 
-        <!-- ヘッダーセクション -->
         <header class="text-center mb-12 md:mb-20">
             <h1 class="text-3xl md:text-5xl font-bold text-gray-800 mb-2">FY25 CS異動 分析とマッチング</h1>
             <p class="text-base md:text-lg text-gray-500 font-medium">2025 人材開発室 成長戦略開発G</p>
         </header>
 
-        <!-- 3つのコンテンツブロック -->
         <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <!-- ブロック1: CS異動対象者情報 -->
             <a href="./list.html" rel="noopener noreferrer" class="block p-8 bg-white rounded-xl shadow-md material-card">
                 <div class="flex items-center mb-4">
                     <div class="p-3 bg-blue-100 rounded-full">
@@ -65,39 +60,35 @@
                 <p class="text-gray-600 leading-relaxed">CS異動対象者の個々人の特性やキャリアの方向性を分析した内容です。</p>
             </a>
 
-            <!-- ブロック2: 釣書分析 -->
-            <div class="p-8 bg-white rounded-xl shadow-md material-card cursor-default">
+            <a href="https://nikaishimpei.github.io/calipList/jobdescription.html" rel="noopener noreferrer" class="block p-8 bg-white rounded-xl shadow-md material-card">
                  <div class="flex items-center mb-4">
-                    <div class="p-3 bg-green-100 rounded-full">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-                    </div>
-                </div>
-                <h2 class="text-xl font-bold mb-3">FY25 釣書分析</h2>
-                <p class="text-gray-600 leading-relaxed mb-6">各ユニットから出てきた釣書を職種ごとに分類・分析しています。</p>
-                
-                <!-- アコーディオン -->
-                <details class="group">
-                    <summary class="font-medium cursor-pointer text-gray-700 hover:text-black">詳細データを見る</summary>
-                    <div class="mt-4 pt-4 border-t border-gray-200">
-                        <div id="position-stats">
-                            <!-- データはJavaScriptでここに挿入されます -->
-                            <div class="text-center text-gray-500">データを読み込み中...</div>
-                        </div>
-                    </div>
-                </details>
-            </div>
+                     <div class="p-3 bg-green-100 rounded-full">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                     </div>
+                 </div>
+                 <h2 class="text-xl font-bold mb-3">FY25 釣書分析</h2>
+                 <p class="text-gray-600 leading-relaxed mb-6">各ユニットから出てきた釣書を職種ごとに分類・分析しています。</p>
+                 
+                 <details class="group">
+                     <summary class="font-medium cursor-pointer text-gray-700 hover:text-black">詳細データを見る</summary>
+                     <div class="mt-4 pt-4 border-t border-gray-200">
+                         <div id="position-stats">
+                             <div class="text-center text-gray-500">データを読み込み中...</div>
+                         </div>
+                     </div>
+                 </details>
+            </a>
 
-            <!-- ブロック3: マッチング -->
-            <a href="#" class="block p-8 bg-white rounded-xl shadow-md material-card">
+            <a href="https://nikaishimpei.github.io/calipList/matching.html" rel="noopener noreferrer" class="block p-8 bg-white rounded-xl shadow-md material-card">
                  <div class="flex items-center mb-4">
-                    <div class="p-3 bg-purple-100 rounded-full">
-                       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                    </div>
-                </div>
-                <h2 class="text-xl font-bold mb-3">CS異動対象者 × 釣書のマッチング</h2>
-                <p class="text-gray-600 leading-relaxed">異動対象者と各ポジションのマッチング結果をスキルやカルチャーフィットの観点からまとめています。</p>
+                     <div class="p-3 bg-purple-100 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                         </svg>
+                     </div>
+                 </div>
+                 <h2 class="text-xl font-bold mb-3">CS異動対象者 × 釣書のマッチング</h2>
+                 <p class="text-gray-600 leading-relaxed">異動対象者と各ポジションのマッチング結果をスキルやカルチャーフィットの観点からまとめています。</p>
             </a>
 
         </main>
@@ -260,7 +251,7 @@
 152	ミライデザイン事業ユニット	ミライデザイン事業ユニットオープンインキュベーション局	ミライＤ事業Ｕオープンインキュ局グロースディベロップメント部	ビジネスプロデュース職
 153	海外コミュニケーションデザイン事業ユニット	海外コミュＤ事業Ｕ_グローバルサウス事業ブロック	-	ストラテジックプラニング職
 154	海外コミュニケーションデザイン事業ユニット	海外コミュＤ事業Ｕ_グローバルサウス事業ブロック	海外コミュＤ事業Ｕ_グローバルサウス事業ブロック	ビジネスディベロップメント職
-155	海外コミュニケーションデザイン事業ユニット	グローバルストラテジックプラニング局	グローバルストラテジックプラニング局第一プラニング部	ストラテジックプラニング職
+155	海外コミュニケーションデザイン事業ユニット	グローバルストラテジックプラニング局	グローバルストラтеジックプラニング局第一プラニング部	ストラテジックプラニング職
 156	海外コミュニケーションデザイン事業ユニット	海外コミュＤ事業Ｕ_中国事業ブロック		ビジネスプロデュース職
 157	海外コミュニケーションデザイン事業ユニット	海外コミュＤ事業Ｕ_台湾事業ブロック	-	ストラテジックプラニング職
 158	コーポレートデザインセンター	人事室	人事室タレントアクイジション部	マネジメントプロデュース職
@@ -327,14 +318,14 @@
 
             // 全ポジション数
             html += `<div class="flex justify-between items-center">
-                        <span class="font-semibold text-gray-700">全ポジション数:</span>
-                        <span class="font-bold text-lg text-indigo-600">${totalPositions}</span>
-                     </div>`;
+                         <span class="font-semibold text-gray-700">全ポジション数:</span>
+                         <span class="font-bold text-lg text-indigo-600">${totalPositions}</span>
+                       </div>`;
 
             // 部門ごとの数
             html += `<div class="pt-2">
-                        <h4 class="font-semibold mb-2 text-gray-700">部門ごとのポジション数:</h4>
-                        <ul class="space-y-1 list-disc list-inside text-gray-600">`;
+                         <h4 class="font-semibold mb-2 text-gray-700">部門ごとのポジション数:</h4>
+                         <ul class="space-y-1 list-disc list-inside text-gray-600">`;
             for (const [dept, count] of Object.entries(departmentCounts)) {
                 html += `<li><span class="font-medium">${dept}:</span> ${count}</li>`;
             }
@@ -342,19 +333,19 @@
 
             // 職種ごとの比率
             html += `<div class="pt-2">
-                        <h4 class="font-semibold mb-2 text-gray-700">職種ごとの比率:</h4>
-                        <ul class="space-y-1 text-gray-600">`;
+                         <h4 class="font-semibold mb-2 text-gray-700">職種ごとの比率:</h4>
+                         <ul class="space-y-1 text-gray-600">`;
             for (const [job, count] of Object.entries(jobTypeCounts)) {
                 const ratio = ((count / totalPositions) * 100).toFixed(1);
                 html += `<li class="w-full">
-                            <div class="flex justify-between text-xs font-medium">
-                                <span>${job}</span>
-                                <span>${ratio}% (${count}件)</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-1.5 mt-1">
-                                <div class="bg-green-500 h-1.5 rounded-full" style="width: ${ratio}%"></div>
-                            </div>
-                         </li>`;
+                             <div class="flex justify-between text-xs font-medium">
+                                 <span>${job}</span>
+                                 <span>${ratio}% (${count}件)</span>
+                             </div>
+                             <div class="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+                                 <div class="bg-green-500 h-1.5 rounded-full" style="width: ${ratio}%"></div>
+                             </div>
+                           </li>`;
             }
             html += `</ul></div>`;
 
