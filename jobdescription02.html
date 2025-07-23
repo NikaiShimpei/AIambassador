@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>クリエイティブ職・PR職 ポジション分析 インフォグラフィック</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'M PLUS 1p', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .accordion-content.open {
+            max-height: 1000px; /* 開いた時の十分な高さを確保 */
+        }
+        .avg-marker {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 120%;
+            background-color: rgba(239, 68, 68, 0.6); /* 平均マーカーの色を赤に変更 */
+            border-right: 1px dotted rgba(255,255,255,0.5);
+            z-index: 10;
+        }
+        .avg-marker::after {
+            content: '全体平均';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(239, 68, 68, 0.8);
+            color: white;
+            padding: 1px 4px;
+            border-radius: 4px;
+            font-size: 10px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .relative:hover .avg-marker::after {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto p-4 md:p-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800">クリエイティブ職・PR職 ポジション分析</h1>
+            <p class="text-lg text-gray-500 mt-2">（最終確定版：19件）</p>
+        </header>
+        <main class="space-y-12">
+            <!-- Category 1: 統合アクティベーションプランナー -->
+            <section class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="p-6 md:p-8 bg-gradient-to-r from-blue-500 to-blue-400 text-white">
+                    <h2 class="text-2xl md:text-3xl font-bold">1. 統合アクティベーションプランナー</h2>
+                    <div class="mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <p class="text-lg font-semibold">ボリューム: 5件</p>
+                        <div class="w-full sm:w-1/2">
+                            <div class="flex items-center">
+                                <div class="w-full bg-white/30 rounded-full h-3">
+                                    <div class="bg-white h-3 rounded-full" style="width: 26.3%"></div>
+                                </div>
+                                <span class="ml-3 text-sm font-semibold">26.3%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8">
+                    <p class="text-gray-600 mb-8">ナショナルクライアントに対し、マス、デジタル、イベント、PRなど多様な手法を組み合わせた統合的なコミュニケーションプランの策定から実行までを担う、企画実践型のポジション群です。アイデアとクリエイティブへの強いモチベーションが求められ、チーム内外の多職種と連携しながらプロジェクトを推進する中心的な役割を担います。</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-blue-500 pb-1">求められること</h4><p class="text-gray-600">アクティベーション領域での即戦力となる実務経験、または新しいクリエイティブ開発への強い向上心。ソーシャル発想やPR視点を取り入れた、手口に囚われない統合プランニング能力。マーコム領域に留まらない、事業開発やソーシャルイシューなど多様な課題への拡張意欲。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-blue-500 pb-1">カルチャー</h4><p class="text-gray-600">若手が多く活気があり、職種間の垣根なく一体感を持って業務に取り組むチームが中心です。個々のモチベーションは非常に高く、社内外の広告賞受賞やCD（クリエイティブディレクター）を目指すなど、プロフェッショナルとして切磋琢磨する文化が根付いています。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-blue-500 pb-1">成長機会</h4><p class="text-gray-600">統合設計に長けたCDの下で、アクティベーションを軸とした統合プランニングスキルを実践的に学べます。マス/SNS/PRを絡めた体験設計や、動画領域を含むニュートラルな施策開発経験、事業開発や採用活動など、多種多様で難解な課題と向き合うことによるスキル拡張が期待できます。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-blue-500 pb-1">向いている人</h4><p class="text-gray-600">特定の領域に留まらず、広告コミュニケーション全体を俯瞰し、多様な手法を駆使して企画を考え、実現していくことにやりがいを感じる方。チーム内外の様々な専門家と協業しながら、プロジェクトを力強く推進できるコミュニケーション能力の高い人物が適しています。</p></div>
+                        <div class="md:col-span-2"><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-red-500 pb-1">特有の大変さ</h4><p class="text-gray-600">即戦力であることが期待されるポジションが多く、育成が必要な人材よりも経験者が求められる傾向にあります。担当業務は多岐にわたり難易度も高いため、常に新しい知識を吸収し、幅広い領域に対応し続ける必要があります。</p></div>
+                    </div>
+                    <div class="mb-8">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4">定量的特徴（平均スコア）</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">競合頻度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-blue-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 76%;">3.8</div><div class="avg-marker" style="left: 74%;" title="全体平均: 3.7"></div></div><span class="col-span-1 text-gray-500 text-right">(平均: 3.7)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">業務難易度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-blue-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 80%;">4.0</div><div class="avg-marker" style="left: 79%;" title="全体平均: 4.0"></div></div><span class="col-span-1 text-gray-500 text-right">(平均: 4.0)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">繁忙度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-blue-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 80%;">4.0</div><div class="avg-marker" style="left: 72%;" title="全体平均: 3.6"></div></div><span class="col-span-1 text-gray-500 text-right">(平均: 3.6)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">タフネス度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-blue-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 80%;">4.0</div><div class="avg-marker" style="left: 74%;" title="全体平均: 3.7"></div></div><span class="col-span-1 text-gray-500 text-right">(平均: 3.7)</span></div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>主な担当業務</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside columns-2 md:columns-3 gap-x-8"><li>花王</li><li>サントリー</li><li>ミスド</li><li>丸亀製麺</li><li>日本生命</li><li>出版業務</li><li>味の素/AGF</li><li>講談社</li><li>日立</li><li>雪印メグミルク</li><li>エスエス製薬</li><li>TikTok</li><li>Amazon</li><li>長谷工</li><li>JR</li><li>博報堂</li><li>スズキ</li><li>小学館</li><li>集英社</li><li>ロッテ</li><li>グーグル</li><li>アサヒ</li><li>キリンビール</li><li>キリンビバレッジ</li><li>東ハト</li></ul></div></div></div>
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>該当ポジション</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside columns-2 md:columns-3 gap-x-8"><li>クリエイティブ局伊藤チーム</li><li>クリエイティブ局丸田チーム</li><li>クリエイティブ局山﨑チーム</li><li>クリエイティブ局酒井チーム</li><li>クリエイティブ局菅チーム</li></ul></div></div></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Category 2: ブランド戦略コピーライター & CMプランナー -->
+            <section class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="p-6 md:p-8 bg-gradient-to-r from-green-500 to-green-400 text-white">
+                    <h2 class="text-2xl md:text-3xl font-bold">2. ブランド戦略コピーライター & CMプランナー</h2>
+                    <div class="mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <p class="text-lg font-semibold">ボリューム: 5件</p>
+                        <div class="w-full sm:w-1/2">
+                            <div class="flex items-center">
+                                <div class="w-full bg-white/30 rounded-full h-3">
+                                    <div class="bg-white h-3 rounded-full" style="width: 26.3%"></div>
+                                </div>
+                                <span class="ml-3 text-sm font-semibold">26.3%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8">
+                    <p class="text-gray-600 mb-8">コピーライティングやCMプランニングを専門技術の中核に据え、言葉や映像が関わるあらゆるクリエイティブ領域で活躍するポジションです。ナショナルクライアントのブランディングの根幹を担い、マスからデジタルまでを横断する重要な役割を果たします。</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-green-500 pb-1">求められること</h4><p class="text-gray-600">コピーやCMプランニングの高い専門性と、それを軸にしたプランニング能力。CMやデジタル動画など映像領域全般への対応力。コンセプトメイキングやステートメント開発などブランドの根幹を言語化するスキル。チーム外のメンバーとも積極的に交流し人脈を築けるバイタリティ。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-green-500 pb-1">カルチャー</h4><p class="text-gray-600">職人気質のベテランからエネルギッシュな若手まで、言葉や企画の専門家が集うチームが多く、同職種としての繋がりや理解が深い文化があります。落ち着いた雰囲気のチームもあれば、若々しく活気のあるチームもあり、共通してアウトプットへのこだわりが強いプロフェッショナルな環境です。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-green-500 pb-1">成長機会</h4><p class="text-gray-600">ナショナルクライアントの大型案件を通じて、ブランディングの王道ともいえる実務経験を積めます。CM、デジタル、アクティベーションを横断したコピー＆プランニング能力の習得や、ステートメント開発や事業プロデュースなど、専門性を基点とした多様なスキル拡張が期待できます。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-green-500 pb-1">向いている人</h4><p class="text-gray-600">言葉や企画の力を信じ、その技術をとことん突き詰めたいという強い意志を持つ方。同時に、専門領域の枠を超えて、幅広い領域に挑戦し、自らの専門性を拡張していく意欲のある人物が活躍できます。ベテランに刺激を与えられるバイタリティも歓迎されます。</p></div>
+                        <div class="md:col-span-2"><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-red-500 pb-1">特有の大変さ</h4><p class="text-gray-600">担当クライアントは競合が多く、常に高いレベルのアウトプットを求められるプレッシャーがあります。特にマス広告では、世の中への影響力が大きい分、強い責任感が伴います。作る力、考える力、広げる力のすべてが求められるタフな環境です。</p></div>
+                    </div>
+                    <div class="mb-8">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4">定量的特徴（平均スコア）</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">競合頻度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-green-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 76%;">3.8</div><div class="avg-marker" style="left: 74%;" title="全体平均: 3.7"></div></div><span class="col-span-1 text-gray-500 text-right">(平均: 3.7)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">業務難易度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-green-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 80%;">4.0</div><div class="avg-marker" style="left: 79%;" title="全体平均: 4.0"></div></div><span class="col-span-1 text-gray-500 text-right">(平均: 4.0)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">繁忙度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-green-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 72%;">3.6</div><div class="avg-marker" style="left: 72%;" title="全体平均: 3.6"></div></div><span class="col-span-1 text-gray-500 text-right">(平均: 3.6)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">タフネス度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-green-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 72%;">3.6</div><div class="avg-marker" style="left: 74%;" title="全体平均: 3.7"></div></div><span class="col-span-1 text-gray-500 text-right">(平均: 3.7)</span></div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>主な担当業務</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside columns-2 md:columns-3 gap-x-8"><li>新潮社</li><li>AGF</li><li>日清食品</li><li>コロワイド</li><li>関西電力</li><li>KIRIN</li><li>McDonald’s</li><li>docomo</li><li>FANCL</li><li>ゼンショー</li><li>花王</li><li>大塚製薬</li><li>有楽製菓</li><li>スターフライヤー</li><li>LUUP</li><li>エスエス製薬</li><li>富士フイルム</li><li>東ハト</li><li>オンワード樫山</li><li>バスキュール</li><li>INPEX</li><li>MOTA</li><li>タイガー魔法瓶</li><li>ライオン</li><li>野村不動産</li></ul></div></div></div>
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>該当ポジション</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside columns-2 md:columns-3 gap-x-8"><li>クリエイティブ局青木チーム</li><li>クリエイティブ局田中チーム</li><li>クリエイティブ局宇野チーム</li><li>クリエイティブ局石下チーム</li><li>クリエイティブ局大島チーム</li></ul></div></div></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Category 3: 領域拡張型アートディレクター -->
+            <section class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="p-6 md:p-8 bg-gradient-to-r from-purple-500 to-purple-400 text-white">
+                    <h2 class="text-2xl md:text-3xl font-bold">3. 領域拡張型アートディレクター</h2>
+                    <div class="mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <p class="text-lg font-semibold">ボリューム: 3件</p>
+                        <div class="w-full sm:w-1/2">
+                            <div class="flex items-center">
+                                <div class="w-full bg-white/30 rounded-full h-3">
+                                    <div class="bg-white h-3 rounded-full" style="width: 15.8%"></div>
+                                </div>
+                                <span class="ml-3 text-sm font-semibold">15.8%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8">
+                    <p class="text-gray-600 mb-8">広告やグラフィックデザインといった従来の得意領域に加え、パッケージデザイン、空間演出、プロダクト開発、IP（知的財産）活用ビジネスなど、アートディレクションのスキルを多方面に拡張していくポジションです。デザインを起点に、ビジネスやブランド体験そのものを構築する役割を担います。</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-purple-500 pb-1">求められること</h4><p class="text-gray-600">高いレベルのデザインスキルと、それを多様な領域に応用できる柔軟性。プランニングへの興味とスキル、特にファンダムやコンテンツビジネスへの関心。チーム内外のメンバーと積極的に交流し、プロジェクトを推進できるバイタリティ。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-purple-500 pb-1">カルチャー</h4><p class="text-gray-600">デザイナー出身者が集まり、同職種としての理解が深くコミュニケーションが円滑なチームが多いです。ファンダムマーケティングなど特定のテーマを掲げるチームもあり、活発な交流の中で新しいクリエイティブに挑戦する文化が根付いています。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-purple-500 pb-1">成長機会</h4><p class="text-gray-600">広告デザインに留まらず、映像、空間、プロダクト、デジタル、IPビジネスなど多様な領域でのデザイン経験を積めます。ナショナルクライアントの大型案件を通じて、ブランドづくりの基礎から応用までを体系的に学べます。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-purple-500 pb-1">向いている人</h4><p class="text-gray-600">自らのデザインスキルを軸に、広告の枠を超えて新しい領域へ挑戦したいという強い意欲を持つ方。特に、コンテンツ、ファンダム、プロダクト開発といったテーマに関心が高く、プランニングやビジネス構築にも積極的に関わりたいと考えるデザイナーに適しています。</p></div>
+                        <div class="md:col-span-2"><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-red-500 pb-1">特有の大変さ</h4><p class="text-gray-600">デザインのクオリティとスピードの両立が求められます。また、デザイン追求型ではなくプランニングや拡張領域への興味と経験が求められるため、単なるアウトプット制作に留まらない複合的なスキルが要求されます。</p></div>
+                    </div>
+                    <div class="mb-8">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4">定量的特徴（平均スコア）</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">競合頻度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-purple-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 66.7%;">3.3</div><div class="avg-marker" style="left: 74%;" title="全体平均: 3.7"></div></div><span class="col-span-1 text-gray-500 text-right">(平均: 3.7)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">業務難易度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-purple-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 80%;">4.0</div><div class="avg-marker" style="left: 79%;" title="全体平均: 4.0"></div></div><span class="col-span-1 text-gray-500 text-right">(平均: 4.0)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">繁忙度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-purple-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 60%;">3.0</div><div class="avg-marker" style="left: 72%;" title="全体平均: 3.6"></div></div><span class="col-span-1 text-gray-500 text-right">(平均: 3.6)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">タフネス度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-purple-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 73.3%;">3.7</div><div class="avg-marker" style="left: 74%;" title="全体平均: 3.7"></div></div><span class="col-span-1 text-gray-500 text-right">(平均: 3.7)</span></div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>主な担当業務</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside columns-2 md:columns-3 gap-x-8"><li>アサヒビール</li><li>TOYOTA</li><li>I-ne</li><li>GEO</li><li>集英社</li><li>花王</li><li>Honda</li><li>AGF</li><li>ANA</li><li>マルハニチロ</li><li>サンヨー食品</li><li>KFC</li><li>スターダスト</li><li>JT</li><li>JARO</li><li>森永製菓</li></ul></div></div></div>
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>該当ポジション</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside columns-2 md:columns-3 gap-x-8"><li>クリエイティブ局一倉チーム</li><li>クリエイティブ局臼井チーム</li><li>クリエイティブ局湧川チーム</li></ul></div></div></div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Category 4: 事業共創型PRストラテジスト -->
+            <section class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="p-6 md:p-8 bg-gradient-to-r from-orange-500 to-orange-400 text-white">
+                    <h2 class="text-2xl md:text-3xl font-bold">4. 事業共創型PRストラテジスト</h2>
+                    <div class="mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <p class="text-lg font-semibold">ボリューム: 3件</p>
+                        <div class="w-full sm:w-1/2">
+                            <div class="flex items-center">
+                                <div class="w-full bg-white/30 rounded-full h-3">
+                                    <div class="bg-white h-3 rounded-full" style="width: 15.8%"></div>
+                                </div>
+                                <span class="ml-3 text-sm font-semibold">15.8%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8">
+                    <p class="text-gray-600 mb-8">従来のPRの枠を超え、クライアントの経営層（CxO）と直接対峙しながら、事業戦略、サービス開発、ブランディングといった根幹領域から並走するコンサルティング色の強いポジションです。PR発想を起点に、構想から実装までを一気通貫で手掛け、企業の事業成長そのものに貢献します。</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-orange-500 pb-1">求められること</h4><p class="text-gray-600">PRの専門性を基盤としつつ、領域を限定せず拡張できるT字型の思考。答えのないコンサルティング業務にも並走できる、圧倒的な思考体力と責任感。未知の領域にも臆せず飛び込むマインドセットと、高い企画力・実行力。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-orange-500 pb-1">カルチャー</h4><p class="text-gray-600">自主性を重んじるプロフェッショナルな文化が根付いています。人間関係は良好で、互いの専門性を尊重しながら協業する風土があります。得意先はIT、金融、メーカーなど多岐にわたり、経営イシューに直結する緊張感のある業務が多いのが特徴です。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-orange-500 pb-1">成長機会</h4><p class="text-gray-600">CxOクラスと直接対話し、経営視点での課題解決に携わる経験を積めます。PRや戦略プランニングのスキルを事業戦略、サービス開発へと拡張する機会や、構想（戦略）から実装（マーコム）までをワンストップで担う「戦略CD」候補としてのキャリアパスがあります。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-orange-500 pb-1">向いている人</h4><p class="text-gray-600">広報・PRの専門性を活かし、企業のコミュニケーション課題だけでなく、事業課題そのものの解決に挑戦したい方。高い視座を持ち、経営層のパートナーとして事業を共に創造していくことに強いやりがいを感じる、知的好奇心と精神的タフネスを兼ね備えた人物が求められます。</p></div>
+                        <div class="md:col-span-2"><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-red-500 pb-1">特有の大変さ</h4><p class="text-gray-600">常に即戦力であることが求められ、育成の猶予は少ない厳しい環境です。クライアントの事業の根幹に関わるため、業務の難易度、繁忙度、精神的なタフネスのすべてにおいて高いレベルが要求されます。正解がない問いに向き合い続ける思考体力が不可欠です。</p></div>
+                    </div>
+                    <div class="mb-8">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4">定量的特徴（平均スコア）</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">競合頻度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-orange-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 60%;">3.0</div><div class="avg-marker" style="left: 74%;" title="全体平均: 3.7"></div></div><span class="col-span-1 text-gray-500 text-right">(平均: 3.7)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">業務難易度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-orange-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 73.3%;">3.7</div><div class="avg-marker" style="left: 79%;" title="全体平均: 4.0"></div></div><span class="col-span-1 text-gray-500 text-right">(平均: 4.0)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">繁忙度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-orange-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 93.3%;">4.7</div><div class="avg-marker" style="left: 72%;" title="全体平均: 3.6"></div></div><span class="col-span-1 text-gray-500 text-right">(平均: 3.6)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">タフネス度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-orange-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 86.7%;">4.3</div><div class="avg-marker" style="left: 74%;" title="全体平均: 3.7"></div></div><span class="col-span-1 text-gray-500 text-right">(平均: 3.7)</span></div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>主な担当業務</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside columns-2 md:columns-3 gap-x-8"><li>花王</li><li>LINEヤフー</li><li>東京海上HD</li><li>PPIH</li><li>クラシエ</li><li>ENEOS</li><li>アマノフーズ</li><li>JT</li><li>日本医師会</li><li>ベネッセ</li><li>アサヒ飲料</li><li>ソフトバンク</li><li>ソニーホンダ</li></ul></div></div></div>
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>該当ポジション</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside columns-2 md:columns-3 gap-x-8"><li>クリエイティブ局水野チーム</li><li>ＰＲ局プラニング一部</li><li>ＰＲ局ＰＲ－Ｘ部</li></ul></div></div></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Category 5: 次世代コマース & CXクリエイター -->
+            <section class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="p-6 md:p-8 bg-gradient-to-r from-teal-500 to-teal-400 text-white">
+                    <h2 class="text-2xl md:text-3xl font-bold">5. 次世代コマース & CXクリエイター</h2>
+                    <div class="mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <p class="text-lg font-semibold">ボリューム: 3件</p>
+                        <div class="w-full sm:w-1/2">
+                            <div class="flex items-center">
+                                <div class="w-full bg-white/30 rounded-full h-3">
+                                    <div class="bg-white h-3 rounded-full" style="width: 15.8%"></div>
+                                </div>
+                                <span class="ml-3 text-sm font-semibold">15.8%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8">
+                    <p class="text-gray-600 mb-8">コマース領域を主戦場とし、CX（顧客体験）設計、CRM、ビジネスデザインなど、最先端のデジタル技術とクリエイティビティを融合させて、新しい購買体験や事業を創出するポジションです。従来の広告の枠組みを超え、事業の成果に直結するクリエイティブを実践します。</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-teal-500 pb-1">求められること</h4><p class="text-gray-600">与えられた要件に応えるだけでなく、自らプラスアルファの提案を創造する意欲。コマース、CRM、ファンづくり、体験設計など拡張領域への強い関心。ビジネスデザインや最新テクノロジーへの興味。Fee（フィー）ビジネスへの理解。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-teal-500 pb-1">カルチャー</h4><p class="text-gray-600">若手からベテランまでバランスの取れたメンバー構成で、多様なバックグラウンドを持つ人材が協業しています。特定のビジネスデベロップメント局に限定されず、幅広いプロジェクトを推進しており、局内関連会社との連携も活発です。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-teal-500 pb-1">成長機会</h4><p class="text-gray-600">従来のマーケティングコミュニケーションに加え、コマース、CRM、ファンづくり、体験設計など拡張領域の知識・経験。ブランディングを起点にビジネスをドライブさせる案件や、商品開発、事業開発に携わることで、キャリアの可能性を大きく広げられます。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-teal-500 pb-1">向いている人</h4><p class="text-gray-600">広告クリエイティブの力で、人々の心を動かすだけでなく、直接的な購買行動や事業成果を生み出すことに強い興味を持つ方。デジタルテクノロジーや新しい顧客体験の創造に情熱を注ぎ、自ら仕事を創り出していく気概のある人物が最適です。</p></div>
+                        <div class="md:col-span-2"><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-red-500 pb-1">特有の大変さ</h4><p class="text-gray-600">担当領域が新しく、常に進化しているため、継続的な学習と新しい技術へのキャッチアップが不可欠です。また、クライアントの事業成果に直接的にコミットするため、アイデアの力でアカウントを維持し続けるといった緊張感の高い業務も含まれます。</p></div>
+                    </div>
+                    <div class="mb-8">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4">定量的特徴（平均スコア）</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">競合頻度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-teal-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 80%;">4.0</div><div class="avg-marker" style="left: 74%;" title="全体平均: 3.7"></div></div><span class="col-span-1 text-gray-500 text-right">(平均: 3.7)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">業務難易度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-teal-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 80%;">4.0</div><div class="avg-marker" style="left: 79%;" title="全体平均: 4.0"></div></div><span class="col-span-1 text-gray-500 text-right">(平均: 4.0)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">繁忙度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-teal-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 66.7%;">3.3</div><div class="avg-marker" style="left: 72%;" title="全体平均: 3.6"></div></div><span class="col-span-1 text-gray-500 text-right">(平均: 3.6)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">タフネス度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-teal-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 86.7%;">4.3</div><div class="avg-marker" style="left: 74%;" title="全体平均: 3.7"></div></div><span class="col-span-1 text-gray-500 text-right">(平均: 3.7)</span></div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>主な担当業務</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside columns-2 md:columns-3 gap-x-8"><li>三井不動産</li><li>楽天グループ</li><li>資生堂</li><li>TOYOTA</li><li>Honda</li><li>大塚製薬</li><li>ZOZO</li><li>PPIH</li><li>Daikin</li><li>ミツカン</li><li>YANASE</li></ul></div></div></div>
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>該当ポジション</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside columns-2 md:columns-3 gap-x-8"><li>ＣＸクリエイティブ局一部 (ID:141)</li><li>ＣＸクリエイティブ局一部 (ID:142)</li><li>ＣＸクリエイティブ局三部</li></ul></div></div></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const accordions = document.querySelectorAll('.accordion-item');
+
+            accordions.forEach(item => {
+                const button = item.querySelector('.accordion-toggle');
+                const content = item.querySelector('.accordion-content');
+                const icon = button.querySelector('svg');
+
+                button.addEventListener('click', () => {
+                    content.classList.toggle('open');
+                    icon.classList.toggle('rotate-180');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

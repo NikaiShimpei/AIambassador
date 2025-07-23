@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PL職 ポジション分析インフォグラフィック</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'M PLUS 1p', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .accordion-content.open {
+            max-height: 1500px; /* 開いた時の十分な高さを確保 */
+        }
+        .avg-marker {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 120%;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-right: 1px solid rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+        .avg-marker::after {
+            content: attr(title);
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4a5568;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+        }
+        .avg-marker:hover::after {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto p-4 md:p-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800">PL職 ポジション分析レポート</h1>
+            <p class="text-lg text-gray-500 mt-2">（分析対象：ストラテジックプラニング職／メディアプラニング職 全44件）</p>
+        </header>
+        <main class="space-y-12">
+            <!-- Category 1: メディア戦略プロフェッショナル -->
+            <section class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="p-6 md:p-8 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+                    <h2 class="text-2xl md:text-3xl font-bold">1. メディア戦略プロフェッショナル</h2>
+                    <div class="mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <p class="text-lg font-semibold">ボリューム: 8件</p>
+                        <div class="w-full sm:w-1/2">
+                            <div class="flex items-center">
+                                <div class="w-full bg-white/30 rounded-full h-3">
+                                    <div class="bg-white h-3 rounded-full" style="width: 18.2%"></div>
+                                </div>
+                                <span class="ml-3 text-sm font-semibold">18.2%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8">
+                    <p class="text-gray-600 mb-8">主にメディアプラニング職で構成。テレビとデジタルの統合プラニングを軸に、AaaSなどのデータソリューションを駆使してメディア効果の最大化とPDCAサイクルを推進する、メディア領域の専門家集団です。</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-blue-600 pb-1">求められること</h4><p class="text-gray-600">メディア業務経験、論理的思考能力、高いコミュニケーション能力。データや社内ツールへの興味・関心と、それを活用した分析能力。自身の領域に閉じず、戦略（STP/GP）やクリエイティブなど他領域へ越境していく積極的な姿勢。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-blue-600 pb-1">カルチャー</h4><p class="text-gray-600">チーム内の雰囲気は良好で、互いに助け合う文化が形成されています。男女比のバランスが取れたチームが多く、中途入社者も活躍しやすい多様性のある環境。クライアントとの定例が多く、専門家としての意見を求められる相談型の業務スタイルが中心です。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-blue-600 pb-1">成長機会</h4><p class="text-gray-600">テレビ・デジタルの垣根を超えた統合メディアプラニングスキル。AaaS、MMM、DCRなど最新のデータソリューションの導入・運用ナレッジと、それを用いた高度なデータ分析力。STP/GP/CR局など他部門と連携し、IMC全体を設計・推進する経験と人脈。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-blue-600 pb-1">向いている人</h4><p class="text-gray-600">データやツールを活用してメディア効果を最大化することにやりがいを感じる論理的思考の持ち主。他部門と積極的に連携し、広告コミュニケーション全体を動かすことに興味がある人物が適しています。</p></div>
+                        <div class="md:col-span-2"><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-red-500 pb-1">特有の大変さ</h4><p class="text-gray-600">戦略と実行の間に立ち、多様なステークホルダーとの調整役を担う必要があります。メディア効果の可視化と事業貢献への説明責任が常に求められ、データに基づいたロジカルな説明能力が不可欠です。クイックな対応やマルチタスク処理が求められる場面が多く、常に最新のメディアトレンドやソリューションを学習し続ける必要があります。</p></div>
+                    </div>
+                    <div class="mb-8">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4">定量的特徴（平均スコア）</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">競合頻度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-blue-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 75.0%;">3.8</div><div class="avg-marker" style="left: 72.0%;" title="PL職平均: 3.6"></div></div><span class="col-span-1 text-gray-500">(平均: 3.6)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">業務難易度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-blue-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 77.5%;">3.9</div><div class="avg-marker" style="left: 80.0%;" title="PL職平均: 4.0"></div></div><span class="col-span-1 text-gray-500">(平均: 4.0)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">繁忙度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-blue-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 80.0%;">4.0</div><div class="avg-marker" style="left: 78.0%;" title="PL職平均: 3.9"></div></div><span class="col-span-1 text-gray-500">(平均: 3.9)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">タフネス度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-blue-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 80.0%;">4.0</div><div class="avg-marker" style="left: 78.0%;" title="PL職平均: 3.9"></div></div><span class="col-span-1 text-gray-500">(平均: 3.9)</span></div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>主な担当業務</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside columns-2 md:columns-3 gap-x-8"><li>LIXIL</li><li>農林中央金庫</li><li>パラマウントベッド</li><li>RIZAP</li><li>LAVA</li><li>JCB</li><li>アイリスオーヤマ</li><li>三井ダイレクト</li><li>イーデザイン損保</li><li>アサヒビール</li><li>メットライフ生命</li><li>チューリッヒ生命</li><li>サウンドファン</li><li>マウスコンピューター</li><li>東芝ライフスタイル</li><li>サントリー</li><li>本田技研工業</li><li>auフィナンシャルサービス</li><li>mindoo</li><li>朝日グループ</li><li>マイナビ</li><li>弥生会計</li><li>Amazon</li><li>KFC</li><li>STARR</li><li>Google</li><li>MMC</li><li>SCJ</li></ul></div></div></div>
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>該当ポジション</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside columns-2 md:columns-3 gap-x-8"><li>統合メディアプラニング局三部</li><li>統合メディアプラニング局三部</li><li>統合メディアプラニング局三部</li><li>統合メディアプラニング局二部</li><li>統合メディアプラニング局二部</li><li>統合メディアプラニング局一部</li><li>統合メディアプラニング局一部</li><li>統合メディアプラニング局一部</li></ul></div></div></div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Category 2: 事業変革カタリスト -->
+            <section class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="p-6 md:p-8 bg-gradient-to-r from-purple-600 to-violet-700 text-white">
+                    <h2 class="text-2xl md:text-3xl font-bold">2. 事業変革カタリスト</h2>
+                    <div class="mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <p class="text-lg font-semibold">ボリューム: 9件</p>
+                        <div class="w-full sm:w-1/2">
+                            <div class="flex items-center">
+                                <div class="w-full bg-white/30 rounded-full h-3">
+                                    <div class="bg-white h-3 rounded-full" style="width: 20.5%"></div>
+                                </div>
+                                <span class="ml-3 text-sm font-semibold">20.5%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8">
+                    <p class="text-gray-600 mb-8">企業の根幹に関わる経営課題や事業戦略の策定から、新規事業・サービス開発、パーパス策定といった最上流領域を担うコンサルティング色の強い集団です。クライアントのCXOクラスと対峙し、Feeビジネスを創出します。</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-purple-600 pb-1">求められること</h4><p class="text-gray-600">経営・ブランディングへの関心、論理的思考と感性的思考の両立。既存の枠組みにとらわれず、主体的にビジネスやサービスを構想し、推進する力。クライアントの経営層と対峙できる高いビジネスビヘイビアとファシリテーションスキル。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-purple-600 pb-1">カルチャー</h4><p class="text-gray-600">若手中心で、構想だけでなく実装への関心が高いメンバーが多く、切磋琢磨できるアットホームな雰囲気。個々の主体性やアスピレーションを重視し、プロジェクト型で業務を推進。博報堂らしさとコンサルティングらしさが融合した独自のカルチャー。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-purple-600 pb-1">成長機会</h4><p class="text-gray-600">経営や企業変革に繋がるパーパス・ブランド価値の構想力。新規事業・サービス開発、CX設計、組織変革など、川上から川下までを一気通貫でデザイン・推進する経験。クライアントのCXOクラスと直接対話し、事業パートナーとして伴走する経験。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-purple-600 pb-1">向いている人</h4><p class="text-gray-600">広告の枠を超え、ビジネスや社会の仕組みそのものをデザインすることに強い意欲を持つ人物。抽象的な構想を具体的なアクションに落とし込み、多様なチームを牽引できるリーダーシップのある人が向いています。</p></div>
+                        <div class="md:col-span-2"><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-red-500 pb-1">特有の大変さ</h4><p class="text-gray-600">単発のキャンペーンではなく、中長期にわたる事業・組織変革に関わるため、成果がすぐに見えにくいプレッシャーがあります。前例のない課題に取り組むことが多く、自ら問いを立て、多様な専門家を巻き込みながら解を見出す構想力と推進力が常に求められます。</p></div>
+                    </div>
+                    <div class="mb-8">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4">定量的特徴（平均スコア）</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">競合頻度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-purple-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 77.8%;">3.9</div><div class="avg-marker" style="left: 72.0%;" title="PL職平均: 3.6"></div></div><span class="col-span-1 text-gray-500">(平均: 3.6)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">業務難易度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-purple-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 91.1%;">4.6</div><div class="avg-marker" style="left: 80.0%;" title="PL職平均: 4.0"></div></div><span class="col-span-1 text-gray-500">(平均: 4.0)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">繁忙度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-purple-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 82.2%;">4.1</div><div class="avg-marker" style="left: 78.0%;" title="PL職平均: 3.9"></div></div><span class="col-span-1 text-gray-500">(平均: 3.9)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">タフネス度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-purple-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 82.2%;">4.1</div><div class="avg-marker" style="left: 78.0%;" title="PL職平均: 3.9"></div></div><span class="col-span-1 text-gray-500">(平均: 3.9)</span></div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>主な担当業務</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside columns-2 md:columns-3 gap-x-8"><li>相鉄/小田急都市開発</li><li>東急不動産</li><li>公共系業務</li><li>Google</li><li>Amazon</li><li>アサヒグループ</li><li>SoftBankグループ</li><li>明治安田生命</li><li>ミツカン</li><li>JRA</li><li>三菱地所</li><li>ロレアル</li><li>マイナビ</li><li>トヨタ</li><li>ロッテ</li><li>アイレジリエンス</li><li>花王</li><li>JR東日本</li><li>住友ゴム工業</li><li>楽天グループ</li><li>Sonyグループ</li><li>日清</li><li>小林製薬</li><li>ハウステンボス</li><li>積水ハウス</li></ul></div></div></div>
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>該当ポジション</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside columns-2 md:columns-3 gap-x-8"><li>Signing</li><li>ＭＤＵＭＤ事業経営企画室付出向_プラニングＨ_</li><li>ＭＤＵＭＤ事業経営企画室付出向_プラニングＨ_</li><li>ストラテジックプラニング局事業プラニング一部</li><li>ストラテジックプラニング局事業プラニング二部</li><li>ブランドＤＵブランドデザイン局付出向_ＨＣＩ_</li><li>ブランドＤＵブランドデザイン局付出向_ＨＣＩ_</li><li>メディアＤＵ統合アカウントＰ局ＡａａＳアカウント推進部</li><li>関西メディアプロデュース局ＡａａＳプラニング部</li></ul></div></div></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Category 3: 統合IMCブランドビルダー -->
+            <section class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="p-6 md:p-8 bg-gradient-to-r from-green-600 to-teal-700 text-white">
+                    <h2 class="text-2xl md:text-3xl font-bold">3. 統合IMCブランドビルダー</h2>
+                    <div class="mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <p class="text-lg font-semibold">ボリューム: 9件</p>
+                        <div class="w-full sm:w-1/2">
+                            <div class="flex items-center">
+                                <div class="w-full bg-white/30 rounded-full h-3">
+                                    <div class="bg-white h-3 rounded-full" style="width: 20.5%"></div>
+                                </div>
+                                <span class="ml-3 text-sm font-semibold">20.5%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8">
+                    <p class="text-gray-600 mb-8">大手ナショナルクライアントを担当し、ブランドの課題解決のために統合マーケティングコミュニケーション（IMC）戦略を策定する、王道のストラテジックプラナー集団です。商品開発からコミュニケーションの出口まで一貫して関わります。</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-green-600 pb-1">求められること</h4><p class="text-gray-600">高い当事者意識（オーナーシップ）と、自ら主体的に業務を推進する力。クリエイティブへの強い関心と、それを触発する戦略を言語化する力。スピード感ある得意先やBDと並走するための、高い処理能力、コミット力、タフネス。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-green-600 pb-1">カルチャー</h4><p class="text-gray-600">若手中心で活気があり、出社率も高く、チーム内のコミュニケーションが活発な部署が多い。得意先や社内BDとの心理的距離が近く、常に一体となって業務を推進する「並走型」のスタイルが特徴です。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-green-600 pb-1">成長機会</h4><p class="text-gray-600">商品開発からIMC、PDCAまで、マーケティングのA to Zを一貫して経験。CxOや事業部長クラスと直接対峙し、大規模なブランドの意思決定に関与する経験。体系化された高度なマーケティングスキル。クリエイティブスタッフと密に連携する実践経験。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-green-600 pb-1">向いている人</h4><p class="text-gray-600">ブランドづくりに強い情熱を持ち、戦略からアウトプットまで一貫して携わりたい人。チームで一体となって大きな仕事を成し遂げることに喜びを感じ、プレッシャーを成長の糧と捉えられるタフな人物に適しています。</p></div>
+                        <div class="md:col-span-2"><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-red-500 pb-1">特有の大変さ</h4><p class="text-gray-600">年間キャンペーン数が多く、常に複数のプロジェクトが同時並行で進むため、タスク管理能力とスピード感が求められます。得意先やBDからの期待値が高く、プレッシャーの強い環境で成果を出し続ける精神的なタフネスが必要です。</p></div>
+                    </div>
+                    <div class="mb-8">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4">定量的特徴（平均スコア）</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">競合頻度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-green-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 71.1%;">3.6</div><div class="avg-marker" style="left: 72.0%;" title="PL職平均: 3.6"></div></div><span class="col-span-1 text-gray-500">(平均: 3.6)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">業務難易度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-green-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 84.4%;">4.2</div><div class="avg-marker" style="left: 80.0%;" title="PL職平均: 4.0"></div></div><span class="col-span-1 text-gray-500">(平均: 4.0)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">繁忙度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-green-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 80.0%;">4.0</div><div class="avg-marker" style="left: 78.0%;" title="PL職平均: 3.9"></div></div><span class="col-span-1 text-gray-500">(平均: 3.9)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">タフネス度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-green-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 86.7%;">4.3</div><div class="avg-marker" style="left: 78.0%;" title="PL職平均: 3.9"></div></div><span class="col-span-1 text-gray-500">(平均: 3.9)</span></div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>主な担当業務</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside columns-2 md:columns-3 gap-x-8"><li>丸亀製麺</li><li>キリンビール</li><li>Qoo10</li><li>ステランティス</li><li>日本赤十字</li><li>日本KFC</li><li>総務省</li><li>ミスド</li><li>NIKE</li><li>KOSE</li><li>ハンファジャパン</li><li>花王</li><li>ファミリーマート</li><li>住友林業</li><li>リクルート</li><li>PPIH</li><li>ZOZO</li><li>みずほFG</li><li>アサヒ飲料</li><li>アサヒビール</li><li>サントリー</li><li>エスエス製薬</li><li>トヨタ</li><li>パーソル</li><li>ピアス</li><li>JR西日本</li><li>USJ</li><li>スシロー</li><li>小林製薬</li><li>堀場製作所</li></ul></div></div></div>
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>該当ポジション</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside columns-2 md:columns-3 gap-x-8"><li>ストラテジックプラニング局吉田チーム</li><li>ストラテジックプラニング局古庄チーム</li><li>ストラテジックプラニング局保田チーム</li><li>ストラテジックプラニング局佐藤チーム</li><li>ストラテジックプラニング局石井チーム</li><li>ストラテジックプラニング局小田部チーム</li><li>ストラテジックプラニング局細野チーム</li><li>関西第二ビジネスデザイン局第二プラニングチーム</li><li>関西第一ビジネスデザイン局第一プラニングチーム</li></ul></div></div></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Category 4: グローバル・フロンティア開拓者 -->
+            <section class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="p-6 md:p-8 bg-gradient-to-r from-amber-500 to-orange-600 text-white">
+                    <h2 class="text-2xl md:text-3xl font-bold">4. グローバル・フロンティア開拓者</h2>
+                    <div class="mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <p class="text-lg font-semibold">ボリューム: 8件</p>
+                        <div class="w-full sm:w-1/2">
+                            <div class="flex items-center">
+                                <div class="w-full bg-white/30 rounded-full h-3">
+                                    <div class="bg-white h-3 rounded-full" style="width: 18.2%"></div>
+                                </div>
+                                <span class="ml-3 text-sm font-semibold">18.2%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8">
+                    <p class="text-gray-600 mb-8">日系企業の海外進出支援、外資系企業の日本市場担当など、国境を越えるビジネスの最前線に立つ専門家集団です。多様な文化・言語背景を持つステークホルダーと協業し、グローバル市場でのマーケティングをリードします。</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-amber-500 pb-1">求められること</h4><p class="text-gray-600">ビジネスレベルの語学力（英語・中国語など）と、異文化を尊重し、楽しむことができるマインド。プロジェクト単位の業務が多いため、自ら案件を開拓・維持する前向きな姿勢。多様な国の拠点やパートナーを巻き込む、高度なプロジェクトマネジメント能力。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-amber-500 pb-1">カルチャー</h4><p class="text-gray-600">海外籍や中途入社者も多く、多様なバックグラウンドを尊重する、自由で和気藹々とした雰囲気。クライアントのフロンティアと向き合うため、スピード感と機転が求められる業務が多い。育て合い・助け合いの精神が根付いています。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-amber-500 pb-1">成長機会</h4><p class="text-gray-600">ASEAN、中華圏、インド、欧米など、多様な市場におけるマーケティング・ブランディングの実践経験。各国の拠点やパートナー企業との協業を通じた、グローバルなネットワークの構築。得意先のCEOや本国HQと直接対峙し、グローバルレベルの意思決定に関わる経験。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-amber-500 pb-1">向いている人</h4><p class="text-gray-600">未知の市場や文化への強い好奇心を持ち、語学力を活かしてグローバルな舞台で活躍したい人。多様性の中でリーダーシップを発揮し、複雑なプロジェクトをまとめ上げることに挑戦したい人物に最適です。</p></div>
+                        <div class="md:col-span-2"><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-red-500 pb-1">特有の大変さ</h4><p class="text-gray-600">時差や文化、商習慣の違いから、日本のやり方が通用しない場面が多く、円滑なコミュニケーションと進行管理に困難が伴います。各国の拠点やパートナーを巻き込むためステークホルダーが非常に多く、複雑な合意形成プロセスが必要です。</p></div>
+                    </div>
+                    <div class="mb-8">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4">定量的特徴（平均スコア）</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">競合頻度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-amber-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 75.0%;">3.8</div><div class="avg-marker" style="left: 72.0%;" title="PL職平均: 3.6"></div></div><span class="col-span-1 text-gray-500">(平均: 3.6)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">業務難易度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-amber-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 82.5%;">4.1</div><div class="avg-marker" style="left: 80.0%;" title="PL職平均: 4.0"></div></div><span class="col-span-1 text-gray-500">(平均: 4.0)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">繁忙度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-amber-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 80.0%;">4.0</div><div class="avg-marker" style="left: 78.0%;" title="PL職平均: 3.9"></div></div><span class="col-span-1 text-gray-500">(平均: 3.9)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">タフネス度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-amber-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 82.5%;">4.1</div><div class="avg-marker" style="left: 78.0%;" title="PL職平均: 3.9"></div></div><span class="col-span-1 text-gray-500">(平均: 3.9)</span></div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>主な担当業務</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside columns-2 md:columns-3 gap-x-8"><li>花王</li><li>ユニ・チャーム</li><li>BYD</li><li>エルメスジャポン</li><li>GSK</li><li>JCBグローバル</li><li>Google</li><li>AEON Financial Searvice</li><li>日産自動車</li><li>HENKEL</li><li>HILTON</li><li>P&G</li><li>McD</li><li>カネボウ化粧品</li><li>日本ハム</li><li>マルチスズキ</li><li>ホンダ</li><li>ダイキン</li><li>アサヒ/Kose</li><li>JETRO/JICA</li><li>Mitsubishi Motors</li><li>三菱電機</li><li>サントリー・ウェルネス台湾</li><li>JCB台湾</li><li>Hyundai台湾</li></ul></div></div></div>
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>該当ポジション</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside columns-2 md:columns-3 gap-x-8"><li>ストラテジックプラニング局江藤チーム</li><li>ストラテジックプラニング局宇平チーム</li><li>ストラテジックプラニング局グローバルプラニング部</li><li>TH</li><li>コマースコンサルティング局コマースマーケティング部</li><li>海外コミュＤ事業Ｕ_グローバルサウス事業ブロック</li><li>グローバルストラテジックプラニング局第一プラニング部</li><li>海外コミュＤ事業Ｕ_台湾事業ブロック</li></ul></div></div></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Category 5: データドリブン・マーケター -->
+            <section class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="p-6 md:p-8 bg-gradient-to-r from-sky-500 to-cyan-600 text-white">
+                    <h2 class="text-2xl md:text-3xl font-bold">5. データドリブン・マーケター</h2>
+                    <div class="mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <p class="text-lg font-semibold">ボリューム: 10件</p>
+                        <div class="w-full sm:w-1/2">
+                            <div class="flex items-center">
+                                <div class="w-full bg-white/30 rounded-full h-3">
+                                    <div class="bg-white h-3 rounded-full" style="width: 22.7%"></div>
+                                </div>
+                                <span class="ml-3 text-sm font-semibold">22.7%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8">
+                    <p class="text-gray-600 mb-8">データ、AI、CRM、マーケティングシステムといった専門知識を武器に、クライアントの事業成長を科学的に支援するテクニカルな専門家集団です。最先端のテクノロジーやプラットフォーマーとの連携を駆使します。</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-sky-500 pb-1">求められること</h4><p class="text-gray-600">データハンドリングや分析に対する強い興味・関心。新しいテクノロジーやプラニング手法を積極的に学び、実践する探求心と柔軟性。受け身ではなく、自ら課題を発見し、案件やソリューションを創出していくベンチャーマインド。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-sky-500 pb-1">カルチャー</h4><p class="text-gray-600">若手が多く、データやテクノロジーを起点にバリューを発揮しやすい、実力主義的な風土。ナレッジ共有の仕組みと教え合う文化が根付いており、専門スキルを伸ばすのに適した環境。個々の担当領域の自由度が高く、自律的な業務スタイルが特徴。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-sky-500 pb-1">成長機会</h4><p class="text-gray-600">MMMやAIクラスタリングなど、最先端のマーケティングサイエンスを活用したプラニングスキル。CDP/MA等のデータ基盤構築からCRM施策の実行、UX/UI設計まで、DX領域を横断する専門知識。事業成果に直結する仕組みを自ら構築・実装する経験。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-sky-500 pb-1">向いている人</h4><p class="text-gray-600">テクノロジーやデータを活用して、マーケティングの課題を科学的に解明し、事業成長に貢献することに強い興味を持つ人物。専門性を突き詰めながらも、ビジネス全体を俯瞰し、自ら仕事を作り出していける人が活躍できます。</p></div>
+                        <div class="md:col-span-2"><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-red-500 pb-1">特有の大変さ</h4><p class="text-gray-600">専門性が高いため、クライアントや他部門のメンバーに、複雑な技術や分析結果を分かりやすく翻訳し、納得させるコミュニケーション能力が常に求められます。テクノロジーの進化が速いため、常に自己学習を続け、知識をアップデートし続ける必要があります。</p></div>
+                    </div>
+                    <div class="mb-8">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4">定量的特徴（平均スコア）</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">競合頻度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-sky-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 64.0%;">3.2</div><div class="avg-marker" style="left: 72.0%;" title="PL職平均: 3.6"></div></div><span class="col-span-1 text-gray-500">(平均: 3.6)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">業務難易度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-sky-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 76.0%;">3.8</div><div class="avg-marker" style="left: 80.0%;" title="PL職平均: 4.0"></div></div><span class="col-span-1 text-gray-500">(平均: 4.0)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">繁忙度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-sky-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 72.0%;">3.6</div><div class="avg-marker" style="left: 78.0%;" title="PL職平均: 3.9"></div></div><span class="col-span-1 text-gray-500">(平均: 3.9)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">タフネス度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-sky-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 70.0%;">3.5</div><div class="avg-marker" style="left: 78.0%;" title="PL職平均: 3.9"></div></div><span class="col-span-1 text-gray-500">(平均: 3.9)</span></div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>主な担当業務</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside columns-2 md:columns-3 gap-x-8"><li>三菱自動車</li><li>JACリクルートメント</li><li>ユーキャン</li><li>ロピア</li><li>マウスコンピューター</li><li>びっくりドンキー</li><li>GSK</li><li>パナソニック</li><li>ライフネット生命</li><li>東京電力</li><li>バーチャル生活者</li><li>サントリー食品</li><li>積水ハウス</li><li>トヨタ</li><li>マイナビ</li><li>松井証券</li><li>KFC</li><li>チューリッヒ生命</li><li>Hilton</li><li>花王</li><li>LINEヤフー</li><li>日本生命</li><li>カバヤ食品</li><li>オリオンビール</li><li>CJ FOODS</li></ul></div></div></div>
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>該当ポジション</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside columns-2 md:columns-3 gap-x-8"><li>グロースプラニング局グロースマーケティング二部</li><li>グロースプラニング局グロースマーケティング一部</li><li>グロースプラニング局グロースマーケティング三部</li><li>マーケットデザイン事業ユニット付</li><li>コマースコンサルティング局リテール＆トレードマーケティング部</li><li>ＣＸＣＲ局ＣＸ＆サービスプラニング部</li><li>ＣＸＣＲ局ＣＸ＆サービスプラニング部</li><li>マーケティングシステムコンサル局データプラットフォーム推進部</li><li>マーケティングシステムコンサル局ＣＲＭ推進部</li><li>マーケティングシステムコンサル局ＣＲＭ推進部</li></ul></div></div></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const accordions = document.querySelectorAll('.accordion-item');
+
+            accordions.forEach(item => {
+                const button = item.querySelector('.accordion-toggle');
+                const content = item.querySelector('.accordion-content');
+                const icon = button.querySelector('svg');
+
+                button.addEventListener('click', () => {
+                    const isOpen = content.classList.contains('open');
+                    // Toggle the clicked one
+                    content.classList.toggle('open');
+                    icon.classList.toggle('rotate-180');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

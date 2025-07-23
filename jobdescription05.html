@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研究開発職 インフォグラフィック</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'M PLUS 1p', sans-serif;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .accordion-content.open {
+            max-height: 1000px; /* 開いた時の十分な高さを確保 */
+        }
+        .avg-marker {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 120%;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-right: 1px solid rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto p-4 md:p-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800">研究開発職</h1>
+            <p class="text-lg text-gray-500 mt-2">（最終確定版：5件）</p>
+        </header>
+        <main class="space-y-12">
+            <!-- ========== 先端テクノロジーR&D ========== -->
+            <section class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="p-6 md:p-8 bg-gradient-to-r from-cyan-500 to-blue-600 text-white">
+                    <h2 class="text-2xl md:text-3xl font-bold">先端テクノロジーR&D</h2>
+                    <div class="mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <p class="text-lg font-semibold">ボリューム: 4件</p>
+                        <div class="w-full sm:w-1/2">
+                            <div class="flex items-center">
+                                <div class="w-full bg-white/30 rounded-full h-3">
+                                    <div class="bg-white h-3 rounded-full" style="width: 80.0%"></div>
+                                </div>
+                                <span class="ml-3 text-sm font-semibold">80.0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8">
+                    <p class="text-gray-600 mb-8">AI、XR、データサイエンスといった先端技術を核として、博報堂DYグループの新たなマーケティングソリューションやビジネスモデルを創出するポジション群です。高度な技術的専門性を活かし、アカデミアやスタートアップとも連携しながら、未知の領域を開拓する研究開発を担います。裁量が大きく、自律的にテーマを推進することが求められます。</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-cyan-500 pb-1">求められること</h4><p class="text-gray-600">AI、XR、データサイエンス等の先端技術に対する強い興味・関心と専門知識が求められ、ポジションによってはPython等のプログラミングスキルが必須です。また、特定の専門性に固執せず、多様な技術領域や社会課題に対応しようとする柔軟性と学習意欲、そして自ら課題を発見し、技術的なアプローチを通じて解決をリードする主体性が不可欠です。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-cyan-500 pb-1">カルチャー</h4><p class="text-gray-600">若手や異業種からの転職者など、多様なバックグラウンドを持つ専門家が集まる組織です。個々の専門性を尊重し、活気がありながらも和やかな雰囲気で、知的な刺激に満ちています。スタートアップや大学との共同研究も活発で、オープンイノベーションを体現する文化です。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-cyan-500 pb-1">成長機会</h4><p class="text-gray-600">XR、AI（LLM/VLM）、データフュージョンなど、マーケティングテクノロジーの最先端における知見、実装、プロジェクトマネジメント経験を積むことができます。国内外のトップ研究者や先進的なクライアントとの協業を通じて人脈を広げ、学会発表などを通じて社外でのレピュテーション獲得も目指せます。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-cyan-500 pb-1">向いている人</h4><p class="text-gray-600">特定の技術領域に深い専門性を持ち、それを広告・マーケティングというドメインに応用することに情熱を注げる人物が適しています。未知の領域に臆することなく、自ら問いを立てて主体的に研究開発を推進できる、自律性の高い人物が求められます。</p></div>
+                        <div class="md:col-span-2"><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-red-500 pb-1">特有の大変さ</h4><p class="text-gray-600">常に進化する技術トレンドをキャッチアップし続ける不断の学習が求められます。また、裁量が大きい分、自律的に研究テーマを構想し、プロジェクトを完遂する強いオーナーシップと自己管理能力が不可欠です。前例のない課題に対して、試行錯誤を繰り返しながら価値を創出するプロセスそのものが挑戦となります。</p></div>
+                    </div>
+                    <div class="mb-8">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4">定量的特徴（平均スコア）</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">競合頻度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-cyan-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 40%;">2.0</div><div class="avg-marker" style="left: 40%;" title="平均: 2.0"></div></div><span class="col-span-1 text-gray-500">(平均: 2.0)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">業務難易度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-cyan-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 80%;">4.0</div><div class="avg-marker" style="left: 80%;" title="平均: 4.0"></div></div><span class="col-span-1 text-gray-500">(平均: 4.0)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">繁忙度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-cyan-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 66%;">3.3</div><div class="avg-marker" style="left: 68.8%;" title="平均: 3.44"></div></div><span class="col-span-1 text-gray-500">(平均: 3.4)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">タフネス度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-cyan-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 46%;">2.3</div><div class="avg-marker" style="left: 48.8%;" title="平均: 2.44"></div></div><span class="col-span-1 text-gray-500">(平均: 2.4)</span></div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>主な担当業務</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside space-y-1"><li>グローバルにおけるOOHソリューション開発</li><li>次世代生活者研究（メタバース、XR）</li><li>HDYの技術アセット獲得を目指した研究開発</li><li>人間中心のAI（LLM/VLM）に関する研究開発</li><li>次世代メディアシミュレーター開発</li></ul></div></div></div>
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>該当ポジション</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside space-y-1"><li>研究開発３グループ</li><li>研究開発1グループ</li><li>ＨＣ出向_ＭＴＣ研究開発４グループ</li><li>ＨＣ出向_ＨＣＡＩ_Ｉｎｓｔｉｔｕｔｅ_ＲandＤグループ</li></ul></div></div></div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- ========== 生活者インサイト・リサーチャー ========== -->
+            <section class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div class="p-6 md:p-8 bg-gradient-to-r from-amber-500 to-orange-600 text-white">
+                    <h2 class="text-2xl md:text-3xl font-bold">生活者インサイト・リサーチャー</h2>
+                    <div class="mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <p class="text-lg font-semibold">ボリューム: 1件</p>
+                        <div class="w-full sm:w-1/2">
+                            <div class="flex items-center">
+                                <div class="w-full bg-white/30 rounded-full h-3">
+                                    <div class="bg-white h-3 rounded-full" style="width: 20.0%"></div>
+                                </div>
+                                <span class="ml-3 text-sm font-semibold">20.0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8">
+                    <p class="text-gray-600 mb-8">博報堂のフィロソフィーである「生活者発想」を体現・深化させるポジションです。定性・定量リサーチを駆使して生活者を深く洞察し、そのインサイトを基に新たなブランド論や未来のマーケットの兆しを発信します。技術起点ではなく、人間への深い興味と共感力が求められる研究職です。</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-amber-500 pb-1">求められること</h4><p class="text-gray-600">人や社会の動向に対する旺盛な知的好奇心と、背景を読み解く深い洞察力・共感力が求められます。定性・定量両面でのリサーチスキルと、結果を魅力的に伝える優れた文章力・ファシリテーション能力、そしてクライアントのオリエンに依存せず自ら社会的な論点を設定するアジェンダ設定能力が必要です。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-amber-500 pb-1">カルチャー</h4><p class="text-gray-600">穏やかな人柄のメンバーが多く、互いを尊重し、共創や賞賛を大切にするポジティブな雰囲気です。固定の得意先に縛られず、自らの問題意識や興味関心を起点にテーマを探求することが奨励される、知的好奇心旺盛な文化が根付いています。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-amber-500 pb-1">成長機会</h4><p class="text-gray-600">博報堂の競争力の源泉である「生活者発想」に関する深い理解と、それを実践するための多様なリサーチスキルを習得できます。未来志向の仮説構築力やコンセプト開発力、社会への発信力を高め、テーマ設定からアウトプット創出まで一連のプロジェクトを主体的にマネジメントする経験が積めます。</p></div>
+                        <div><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-amber-500 pb-1">向いている人</h4><p class="text-gray-600">人や社会のトレンド、その裏にある価値観の変化を探求することに喜びを感じる人物に適しています。論理的思考と情緒的感性のバランスに優れ、複雑な事象を分かりやすく言語化・可視化できる方が向いています。答えのない問いに対し、粘り強く探求を楽しめる方に最適です。</p></div>
+                        <div class="md:col-span-2"><h4 class="text-lg font-bold text-gray-800 mb-2 border-b-2 border-red-500 pb-1">特有の大変さ</h4><p class="text-gray-600">決まった業務やクライアント課題がないため、常に自らの知的好奇心を起点に研究テーマを創出し続ける創造力と主体性が求められます。リサーチの実施・分析だけでなく、社会やビジネスにインパクトを与える「発信」までが一連の業務であり、質の高いアウトプットを生み出し続けるプレッシャーがあります。</p></div>
+                    </div>
+                    <div class="mb-8">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4">定量的特徴（平均スコア）</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">競合頻度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-amber-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 40%;">2.0</div><div class="avg-marker" style="left: 40%;" title="平均: 2.0"></div></div><span class="col-span-1 text-gray-500">(平均: 2.0)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">業務難易度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-amber-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 80%;">4.0</div><div class="avg-marker" style="left: 80%;" title="平均: 4.0"></div></div><span class="col-span-1 text-gray-500">(平均: 4.0)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">繁忙度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-amber-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 80%;">4.0</div><div class="avg-marker" style="left: 68.8%;" title="平均: 3.44"></div></div><span class="col-span-1 text-gray-500">(平均: 3.4)</span></div>
+                            <div class="grid grid-cols-5 items-center gap-2"><span class="col-span-1 text-gray-600">タフネス度</span><div class="col-span-3 bg-gray-200 rounded-full h-5 relative"><div class="bg-amber-400 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style="width: 60%;">3.0</div><div class="avg-marker" style="left: 48.8%;" title="平均: 2.44"></div></div><span class="col-span-1 text-gray-500">(平均: 2.4)</span></div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>主な担当業務</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside space-y-1"><li>若者研究所 活動</li><li>With-Sブランド研究</li><li>「新たな生活者理解」のための大規模リサーチ</li><li>新規 STP局連携「Future Evangelist Report」</li></ul></div></div></div>
+                        <div class="accordion-item"><button class="accordion-toggle flex justify-between items-center w-full p-4 text-left font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg focus:outline-none transition-colors"><span>該当ポジション</span><svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="accordion-content"><div class="p-4 bg-gray-50 rounded-b-lg text-gray-600"><ul class="list-disc list-inside space-y-1"><li>生活者発想技術研究所開発一グループ</li></ul></div></div></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const accordions = document.querySelectorAll('.accordion-item');
+
+            accordions.forEach(item => {
+                const button = item.querySelector('.accordion-toggle');
+                const content = item.querySelector('.accordion-content');
+                const icon = button.querySelector('svg');
+
+                button.addEventListener('click', () => {
+                    content.classList.toggle('open');
+                    icon.classList.toggle('rotate-180');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
