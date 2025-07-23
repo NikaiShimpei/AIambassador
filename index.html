@@ -22,21 +22,6 @@
             transform: translateY(-8px); /* ホバー時に少し上に移動 */
             box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.15); /* 影を強調 */
         }
-        /* アコーディオンの矢印をカスタマイズ */
-        details > summary {
-            list-style: none;
-        }
-        details > summary::-webkit-details-marker {
-            display: none;
-        }
-        details > summary::after {
-            content: '▼';
-            float: right;
-            transition: transform 0.2s;
-        }
-        details[open] > summary::after {
-            transform: rotate(180deg);
-        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -67,16 +52,7 @@
                      </div>
                  </div>
                  <h2 class="text-xl font-bold mb-3">FY25 釣書分析</h2>
-                 <p class="text-gray-600 leading-relaxed mb-6">各ユニットから出てきた釣書を職種ごとに分類・分析しています。</p>
-                 
-                 <details class="group">
-                     <summary class="font-medium cursor-pointer text-gray-700 hover:text-black">詳細データを見る</summary>
-                     <div class="mt-4 pt-4 border-t border-gray-200">
-                         <div id="position-stats">
-                             <div class="text-center text-gray-500">データを読み込み中...</div>
-                         </div>
-                     </div>
-                 </details>
+                 <p class="text-gray-600 leading-relaxed">各ユニットから出てきた釣書を職種ごとに分類・分析しています。</p>
             </a>
 
             <a href="https://nikaishimpei.github.io/calipList/matching.html" rel="noopener noreferrer" class="block p-8 bg-white rounded-xl shadow-md material-card">
@@ -251,7 +227,7 @@
 152	ミライデザイン事業ユニット	ミライデザイン事業ユニットオープンインキュベーション局	ミライＤ事業Ｕオープンインキュ局グロースディベロップメント部	ビジネスプロデュース職
 153	海外コミュニケーションデザイン事業ユニット	海外コミュＤ事業Ｕ_グローバルサウス事業ブロック	-	ストラテジックプラニング職
 154	海外コミュニケーションデザイン事業ユニット	海外コミュＤ事業Ｕ_グローバルサウス事業ブロック	海外コミュＤ事業Ｕ_グローバルサウス事業ブロック	ビジネスディベロップメント職
-155	海外コミュニケーションデザイン事業ユニット	グローバルストラテジックプラニング局	グローバルストラтеジックプラニング局第一プラニング部	ストラテジックプラニング職
+155	海外コミュニケーションデザイン事業ユニット	グローバルストラテジックプラニング局	グローバルストラテジックプラニング局第一プラニング部	ストラテジックプラニング職
 156	海外コミュニケーションデザイン事業ユニット	海外コミュＤ事業Ｕ_中国事業ブロック		ビジネスプロデュース職
 157	海外コミュニケーションデザイン事業ユニット	海外コミュＤ事業Ｕ_台湾事業ブロック	-	ストラテジックプラニング職
 158	コーポレートデザインセンター	人事室	人事室タレントアクイジション部	マネジメントプロデュース職
@@ -306,51 +282,15 @@
                 if (cols.length > 4) {
                     const jobType = cols[4].trim();
                     if (jobType) {
-                       acc[jobType] = (acc[jobType] || 0) + 1;
+                        acc[jobType] = (acc[jobType] || 0) + 1;
                     }
                 }
                 return acc;
             }, {});
 
-            // HTMLを生成
-            const statsContainer = document.getElementById('position-stats');
-            let html = `<div class="space-y-4 text-sm">`;
-
-            // 全ポジション数
-            html += `<div class="flex justify-between items-center">
-                         <span class="font-semibold text-gray-700">全ポジション数:</span>
-                         <span class="font-bold text-lg text-indigo-600">${totalPositions}</span>
-                       </div>`;
-
-            // 部門ごとの数
-            html += `<div class="pt-2">
-                         <h4 class="font-semibold mb-2 text-gray-700">部門ごとのポジション数:</h4>
-                         <ul class="space-y-1 list-disc list-inside text-gray-600">`;
-            for (const [dept, count] of Object.entries(departmentCounts)) {
-                html += `<li><span class="font-medium">${dept}:</span> ${count}</li>`;
-            }
-            html += `</ul></div>`;
-
-            // 職種ごとの比率
-            html += `<div class="pt-2">
-                         <h4 class="font-semibold mb-2 text-gray-700">職種ごとの比率:</h4>
-                         <ul class="space-y-1 text-gray-600">`;
-            for (const [job, count] of Object.entries(jobTypeCounts)) {
-                const ratio = ((count / totalPositions) * 100).toFixed(1);
-                html += `<li class="w-full">
-                             <div class="flex justify-between text-xs font-medium">
-                                 <span>${job}</span>
-                                 <span>${ratio}% (${count}件)</span>
-                             </div>
-                             <div class="w-full bg-gray-200 rounded-full h-1.5 mt-1">
-                                 <div class="bg-green-500 h-1.5 rounded-full" style="width: ${ratio}%"></div>
-                             </div>
-                           </li>`;
-            }
-            html += `</ul></div>`;
-
-            html += `</div>`;
-            statsContainer.innerHTML = html;
+            // 元々アコーディオン内に統計情報を表示するためのスクリプトでしたが、
+            // アコーディオンを削除したため、このスクリプトは現在ページの表示には影響しません。
+            // 将来的に何かに利用する可能性を考慮し、コードは残しています。
         });
     </script>
 
