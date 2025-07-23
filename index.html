@@ -84,6 +84,23 @@
             color: white;
             border-color: #007bff;
         }
+        
+        /* トップページに戻るボタンのスタイル */
+        .back-to-top-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #6c757d; /* 落ち着いたグレー */
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+
+        .back-to-top-btn:hover {
+            background: #5a6268; /* 少し濃いグレー */
+        }
 
         .search-box {
             padding: 10px 15px;
@@ -221,6 +238,11 @@
 </head>
 <body>
     <div class="container">
+        <!-- トップページに戻るボタン（上部） -->
+        <div style="text-align: right; margin-bottom: 10px;">
+            <a href="https://nikaishimpei.github.io/fy25-cs-portal/" class="back-to-top-btn">トップページに戻る</a>
+        </div>
+
         <div class="header">
             <h1>CS異動者 キャリプまとめ</h1>
             <p>Career Stretch Program（CSP）個別プロフィール一覧</p>
@@ -245,6 +267,10 @@
         </div>
 
         <div class="footer">
+            <!-- トップページに戻るボタン（フッター） -->
+            <div style="margin-bottom: 20px;">
+                <a href="https://nikaishimpei.github.io/fy25-cs-portal/" class="back-to-top-btn">トップページに戻る</a>
+            </div>
             <p>2025 人材開発室 成長戦略開発G</p>
         </div>
     </div>
@@ -345,4 +371,4 @@
         });
     </script>
 </body>
-</html> 
+</html>
