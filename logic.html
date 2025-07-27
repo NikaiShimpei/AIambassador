@@ -7,234 +7,203 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'M PLUS Rounded 1c', sans-serif;
-            background-color: #f0f4f8;
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #0f172a; /* slate-900 */
+            color: #e2e8f0; /* slate-200 */
+            overflow-x: hidden;
         }
-        .infographic-card {
-            background-color: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            border-left-width: 8px;
-        }
-        .infographic-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.15), 0 15px 15px -10px rgba(0, 0, 0, 0.08);
-        }
-        .percentage-circle {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: 800;
-            font-size: 2rem;
-            color: white;
-            flex-shrink: 0;
-        }
-        .icon-bg {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #e0e7ff;
-        }
-        .connector {
-            width: 2px;
-            height: 50px;
-            background-color: #cbd5e1;
-            margin: 0 auto;
-        }
-        .impact-meter {
-            width: 100%;
-            height: 25px;
-            background: linear-gradient(90deg, #6EE7B7, #FDE047, #F87171);
-            border-radius: 9999px;
-            position: relative;
-            overflow: hidden;
-            border: 2px solid #e5e7eb;
-        }
-        .impact-zone {
+
+        .main-container::before {
+            content: '';
             position: absolute;
             top: 0;
+            left: 0;
+            right: 0;
             bottom: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.75rem;
+            background: radial-gradient(ellipse at top left, rgba(29, 78, 216, 0.15), transparent 50%),
+                        radial-gradient(ellipse at top right, rgba(147, 51, 234, 0.15), transparent 50%),
+                        radial-gradient(ellipse at bottom left, rgba(220, 38, 38, 0.15), transparent 50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        .tech-card {
+            background: rgba(30, 41, 59, 0.5); /* slate-800 with 50% opacity */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(51, 65, 85, 0.7); /* slate-700 */
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .tech-card:hover {
+            background: rgba(51, 65, 85, 0.6); /* slate-700 with 60% opacity */
+            border-color: rgba(71, 85, 105, 0.9); /* slate-600 */
+        }
+
+        .header-btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.75rem 2rem;
+            border: 2px solid #6366f1; /* indigo-500 */
+            color: #a5b4fc; /* indigo-300 */
             font-weight: 700;
-            color: #1f2937;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .header-btn:hover {
+            background-color: #6366f1;
+            color: white;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 24px; /* Adjust based on icon size */
+            left: -33px; /* Adjust to center on the line */
+            width: 24px;
+            height: 24px;
+            border: 3px solid;
+            background-color: #0f172a; /* body bg */
+            z-index: 10;
         }
     </style>
 </head>
-<body class="text-gray-800">
+<body class="antialiased">
 
-    <div class="container mx-auto p-4 md:p-8">
+    <div class="relative min-h-screen main-container">
+        <div class="content-wrapper container mx-auto p-4 md:p-8">
         
-        <!-- ヘッダー -->
-        <header class="text-center mb-12">
-            <div class="flex justify-center mb-6">
-                <button onclick="window.location.href='https://nikaishimpei.github.io/calipList/matching.html'" class="bg-gray-100 text-black font-semibold py-2 px-6 rounded-lg hover:bg-gray-200 transition-all duration-300 shadow-md hover:shadow-lg">
-                    マッチングトップへ戻る
-                </button>
-            </div>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600 mb-2">CS異動マッチングの舞台裏</h1>
-            <p class="text-lg text-gray-600">AIと専門家の目で、最高のキャリアの出会いを創り出すロジック</p>
-        </header>
+            <!-- ヘッダー -->
+            <header class="text-center mb-20">
+                <h1 class="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-red-400 mb-4 tracking-tight">
+                    CS異動マッチングの舞台裏
+                </h1>
+                <p class="text-lg text-slate-400 max-w-2xl mx-auto">マッチングとスコアリングのロジック</p>
+                <a href="https://nikaishimpei.github.io/calipList/matching.html" target="_blank" rel="noopener noreferrer" class="header-btn">
+                    マッチングリストへ
+                </a>
+            </header>
 
-        <!-- メインコンテンツ -->
-        <main>
-            <!-- 評価フレームワーク -->
-            <section class="mb-16">
-                <h2 class="text-3xl font-bold text-center mb-10">マッチングスコアの5つの柱</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <!-- 1. 適合性分析 -->
-                    <div class="infographic-card border-cyan-400 lg:col-span-1 md:col-span-2">
-                        <div class="flex flex-col sm:flex-row items-center gap-6">
-                            <div class="percentage-circle bg-cyan-400">25%</div>
-                            <div>
-                                <h3 class="text-2xl font-bold mb-2">適合性分析</h3>
-                                <p class="text-gray-600">「人」と「チーム」の相性は？</p>
+            <!-- メインコンテンツ -->
+            <main>
+                <!-- 評価フレームワーク -->
+                <section class="mb-24">
+                    <h2 class="text-3xl font-bold text-center mb-12 text-slate-100">マッチングスコアの5つの柱</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                        
+                        <div class="tech-card p-6 border-t-4 border-blue-500">
+                            <p class="text-5xl font-black text-blue-400">25<span class="text-3xl">%</span></p>
+                            <h3 class="text-xl font-bold mt-4 mb-2 text-slate-100">適合性分析</h3>
+                            <p class="text-slate-400">「人」と「チーム」の相性</p>
+                        </div>
+
+                        <div class="tech-card p-6 border-t-4 border-teal-500">
+                            <p class="text-5xl font-black text-teal-400">20<span class="text-3xl">%</span></p>
+                            <h3 class="text-xl font-bold mt-4 mb-2 text-slate-100">スキル適合性</h3>
+                            <p class="text-slate-400">「強み」は活かせるか</p>
+                        </div>
+
+                        <div class="tech-card p-6 border-t-4 border-purple-500">
+                            <p class="text-5xl font-black text-purple-400">20<span class="text-3xl">%</span></p>
+                            <h3 class="text-xl font-bold mt-4 mb-2 text-slate-100">成長機会</h3>
+                            <p class="text-slate-400">未来の「なりたい姿」へ</p>
+                        </div>
+
+                        <div class="tech-card p-6 border-t-4 border-amber-500">
+                            <p class="text-5xl font-black text-amber-400">20<span class="text-3xl">%</span></p>
+                            <h3 class="text-xl font-bold mt-4 mb-2 text-slate-100">既存スキル活用度</h3>
+                            <p class="text-slate-400">「今の経験」も大切に</p>
+                        </div>
+                        
+                        <div class="tech-card p-6 border-t-4 border-red-500">
+                            <p class="text-5xl font-black text-red-400">15<span class="text-3xl">%</span></p>
+                            <h3 class="text-xl font-bold mt-4 mb-2 text-slate-100">総合的判断</h3>
+                            <p class="text-slate-400">専門家の視点</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- スコアリングロジック -->
+                <section class="my-28">
+                    <h2 class="text-3xl font-bold text-center mb-16 text-slate-100">スコアリングの裏側：AIの思考プロセス</h2>
+                    <div class="max-w-3xl mx-auto">
+                        <div class="relative pl-12 border-l-2 border-slate-700">
+                            
+                            <!-- Step 1 -->
+                            <div class="mb-16 relative timeline-item border-blue-500">
+                                <h3 class="text-2xl font-bold text-blue-400">Step 1: 言葉の「意味」をデータ化</h3>
+                                <p class="text-slate-400 mt-2">候補者と異動先の全情報を、文脈・ニュアンスを含めてAIが扱える高次元の「意味のデータ」に変換します。</p>
+                            </div>
+                            
+                            <!-- Step 2 -->
+                            <div class="mb-16 relative timeline-item border-purple-500">
+                                <h3 class="text-2xl font-bold text-purple-400">Step 2: 「意味の近さ」を測定</h3>
+                                <p class="text-slate-400 mt-2">5つの評価軸で、候補者と異動先の「意味のデータ」がどれだけ近いかを測定。意味が近ければ近いほど、高マッチングと判断します。</p>
+                            </div>
+
+                            <!-- Step 3 -->
+                            <div class="relative timeline-item border-red-500">
+                                <h3 class="text-2xl font-bold text-red-400">Step 3: スコアと「理由」を生成</h3>
+                                <p class="text-slate-400 mt-2">最終スコアを算出すると同時に、「なぜこのスコアなのか？」という具体的な理由も、論理的で分かりやすい言葉で作り出します。</p>
                             </div>
                         </div>
-                        <div class="mt-6 pl-4 border-l-2 border-gray-200">
-                            <p class="font-semibold">個人の性格や価値観が、配属先のチーム文化や顧客特性にフィットするかを分析します。</p>
-                        </div>
                     </div>
+                </section>
 
-                    <!-- 2. スキル適合性 -->
-                    <div class="infographic-card border-teal-400 lg:col-span-1">
-                        <div class="flex flex-col sm:flex-row items-center gap-6">
-                            <div class="percentage-circle bg-teal-400">20%</div>
-                            <div>
-                                <h3 class="text-2xl font-bold mb-2">スキル適合性</h3>
-                                <p class="text-gray-600">「強み」は活かせる？</p>
+                <!-- 制約条件 -->
+                <section class="my-24">
+                    <h2 class="text-3xl font-bold text-center mb-12 text-slate-100">大切なルールと心構え</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        
+                        <div class="tech-card p-6">
+                            <h3 class="font-bold text-xl mb-4 text-center text-slate-200">異動のインパクトを考える</h3>
+                            <p class="text-sm text-slate-400 mb-4 text-center">新しい環境は成長のチャンス！でも、無理は禁物。変化の大きさを3つのゾーンで捉えます。</p>
+                            <div class="w-full h-2 bg-gradient-to-r from-emerald-500 via-amber-500 to-red-500 mt-2"></div>
+                            <div class="flex justify-between text-xs mt-2 px-1 text-slate-400">
+                                <span>Comfort</span>
+                                <span class="font-bold text-slate-200">Learning</span>
+                                <span>Panic</span>
                             </div>
                         </div>
-                         <div class="mt-6 pl-4 border-l-2 border-gray-200">
-                            <p class="font-semibold">本人のスキルや強みが、募集ポジションで求められる要件と合致するかを評価します。</p>
+
+                        <div class="tech-card p-6">
+                            <h3 class="font-bold text-xl mb-4 text-center text-slate-200">忘れてはいけないこと</h3>
+                            <ul class="space-y-3 text-slate-300">
+                                <li class="flex items-start">
+                                    <span class="text-blue-400 mr-3 mt-1 font-black">✔</span>
+                                    <span><strong class="font-bold text-slate-100">本人の強い意志は最優先：</strong>「この異動なら退職」などの声は絶対に見逃しません。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-400 mr-3 mt-1 font-black">✔</span>
+                                    <span><strong class="font-bold text-slate-100">クリエイティブ職：</strong>専門性を尊重し、基本は同じ職種内での異動を推奨します。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-red-400 mr-3 mt-1 font-black">✖</span>
+                                    <span><strong class="font-bold text-slate-100">ワーストマッチも提示：</strong>成長が難しいと思われる部署も正直にお伝えします。</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
+                </section>
 
-                    <!-- 3. 成長機会 -->
-                    <div class="infographic-card border-emerald-400 lg:col-span-1">
-                        <div class="flex flex-col sm:flex-row items-center gap-6">
-                            <div class="percentage-circle bg-emerald-400">20%</div>
-                            <div>
-                                <h3 class="text-2xl font-bold mb-2">成長機会</h3>
-                                <p class="text-gray-600">未来の「なりたい姿」へ</p>
-                            </div>
-                        </div>
-                         <div class="mt-6 pl-4 border-l-2 border-gray-200">
-                            <p class="font-semibold">上長が期待する成長の方向性と、異動先で得られる経験が、本人のキャリアを後押しするかを見極めます。</p>
-                        </div>
-                    </div>
+            </main>
 
-                    <!-- 4. 既存スキル活用度 -->
-                     <div class="infographic-card border-amber-400 lg:col-start-1 lg:col-end-2 md:col-start-1 md:col-end-3 lg:w-full">
-                        <div class="flex flex-col sm:flex-row items-center gap-6">
-                            <div class="percentage-circle bg-amber-400">20%</div>
-                            <div>
-                                <h3 class="text-2xl font-bold mb-2">既存スキル活用度</h3>
-                                <p class="text-gray-600">「今の経験」も大切に</p>
-                            </div>
-                        </div>
-                         <div class="mt-6 pl-4 border-l-2 border-gray-200">
-                            <p class="font-semibold">新しい挑戦だけでなく、これまでの経験がしっかり活かせる異動かを重視します。</p>
-                        </div>
-                    </div>
+            <footer class="text-center mt-20 py-8 border-t border-slate-800">
+                <p class="text-slate-500 text-sm">&copy; 2025 人材開発室 二階. All rights はreservedしとらん.</p>
+            </footer>
 
-                    <!-- 5. 総合的判断 -->
-                    <div class="infographic-card border-orange-400 lg:col-start-2 lg:col-end-4 md:col-start-1 md:col-end-3">
-                         <div class="flex flex-col sm:flex-row items-center gap-6">
-                            <div class="percentage-circle bg-orange-400">15%</div>
-                            <div>
-                                <h3 class="text-2xl font-bold mb-2">総合的判断</h3>
-                                <p class="text-gray-600">専門家の視点</p>
-                            </div>
-                        </div>
-                         <div class="mt-6 pl-4 border-l-2 border-gray-200">
-                            <p class="font-semibold">キャリアコンサルタントが、市場動向や本人の潜在能力など、数値化できない要素を総合的に判断します。</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- AIエンジン -->
-            <section class="text-center my-20">
-                <div class="connector"></div>
-                <div class="inline-block bg-white p-6 rounded-full shadow-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-500 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                    </svg>
-                </div>
-                 <h2 class="text-3xl font-bold text-center mt-4 mb-2">AIがココロを読む</h2>
-                 <p class="max-w-2xl mx-auto text-gray-600">最新のAI技術が、面談記録やレポートの言葉の裏にある「ニュアンス」まで読み解き、最適なマッチングを導き出します。</p>
-                <div class="connector"></div>
-            </section>
-
-
-            <!-- 制約条件 -->
-            <section class="mb-16">
-                <h2 class="text-3xl font-bold text-center mb-10">大切なルールと心構え</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    
-                    <!-- 異動インパクト -->
-                    <div class="bg-white p-6 rounded-xl shadow-md">
-                        <h3 class="font-bold text-xl mb-4 text-center">異動のインパクトを考える</h3>
-                        <p class="text-sm text-gray-600 mb-4 text-center">新しい環境は成長のチャンス！でも、無理は禁物。変化の大きさを3つのゾーンで捉えます。</p>
-                        <div class="impact-meter">
-                            <div class="impact-zone" style="left: 0; width: 33%;">Comfort</div>
-                            <div class="impact-zone" style="left: 33%; width: 52%;">Learning</div>
-                            <div class="impact-zone" style="left: 85%; width: 15%;">Panic</div>
-                        </div>
-                        <div class="flex justify-between text-xs mt-2 px-1">
-                            <span>心地よい</span>
-                            <span class="font-bold">最高の成長</span>
-                            <span>要注意</span>
-                        </div>
-                    </div>
-
-                    <!-- その他のルール -->
-                    <div class="bg-white p-6 rounded-xl shadow-md">
-                        <h3 class="font-bold text-xl mb-4 text-center">忘れてはいけないこと</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <span class="text-green-500 mr-3 mt-1">✔</span>
-                                <span><strong class="text-green-600">本人の強い意志は最優先：</strong>「この異動なら退職」などの声は絶対に見逃しません。</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-green-500 mr-3 mt-1">✔</span>
-                                <span><strong class="text-green-600">クリエイティブ職：</strong>専門性を尊重し、基本は同じ職種内での異動を推奨します。</span>
-                            </li>
-                             <li class="flex items-start">
-                                <span class="text-red-500 mr-3 mt-1">✖</span>
-                                <span><strong class="text-red-600">ワーストマッチも提示：</strong>成長が難しいと思われる部署も正直にお伝えします。</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-        </main>
-
-        <footer class="text-center mt-16 py-6 border-t">
-            <div class="flex justify-center mb-4">
-                <button onclick="window.location.href='https://nikaishimpei.github.io/calipList/matching.html'" class="bg-gray-100 text-black font-semibold py-2 px-6 rounded-lg hover:bg-gray-200 transition-all duration-300 shadow-md hover:shadow-lg">
-                    マッチングトップへ戻る
-                </button>
-            </div>
-            <p class="text-gray-500">&copy; 2025 Your Company. All rights reserved.</p>
-        </footer>
-
+        </div>
     </div>
 
 </body>
