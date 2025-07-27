@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>異動先の候補案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@400;500;700&display=swap');
+        html, body {
+            height: 100%;
+        }
+        body {
+            font-family: 'M PLUS 1', sans-serif;
+            /* Gemini風のグラデーション背景 */
+            background: linear-gradient(135deg, #4285F4 0%, #7B52C6 50%, #E94235 100%);
+            background-attachment: fixed;
+            color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* グラスモーフィズム（すりガラス効果）のためのスタイル */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        }
+
+        .btn-hover {
+            transition: all 0.2s ease-in-out;
+        }
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .table-glass th, .table-glass td {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .table-glass th {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        main {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+
+    <header class="glass-panel sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <h1 id="page-title" class="text-xl sm:text-2xl font-bold text-white">異動先の候補案</h1>
+                <a href="matching.html" class="glass-panel text-white font-semibold py-2 px-4 rounded-lg btn-hover">
+                    異動者一覧ページに戻る
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content" class="container mx-auto p-4 sm:p-6 lg:p-8">
+
+        <div id="member-info-panel" class="glass-panel p-6 rounded-xl mb-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                <div>
+                    <p id="member-id" class="text-lg text-gray-300"></p>
+                    <h2 id="member-name" class="text-3xl font-bold text-white"></h2>
+                </div>
+                <div class="mt-4 md:mt-0 text-left md:text-right">
+                    <p id="member-department" class="text-md text-gray-200"></p>
+                    <p id="member-job-title" class="text-md font-semibold text-cyan-300"></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="suggestion-content">
+            <div class="glass-panel p-6 rounded-xl mb-6">
+                <h3 class="text-2xl font-bold border-b-2 border-white/20 pb-2 mb-4">プロファイル分析サマリー</h3>
+                <div id="profile-summary" class="space-y-4">
+                    </div>
+            </div>
+
+            <div class="glass-panel p-6 rounded-xl mb-6">
+                <h3 class="text-2xl font-bold border-b-2 border-white/20 pb-2 mb-4 text-green-300">異動先候補 TOP5</h3>
+                <div id="best-suggestions" class="overflow-x-auto">
+                    </div>
+            </div>
+
+            <div class="glass-panel p-6 rounded-xl">
+                <h3 class="text-2xl font-bold border-b-2 border-white/20 pb-2 mb-4 text-red-400">異動先候補ワースト3 (同職種内)</h3>
+                <div id="worst-suggestions" class="overflow-x-auto">
+                     </div>
+            </div>
+        </div>
+
+        <div id="no-data-message" class="hidden text-center py-10 glass-panel rounded-xl">
+            <h3 class="text-lg font-semibold text-white">詳細データは準備中です</h3>
+            <p class="text-gray-300 mt-1">この候補者の詳細な提案内容は現在作成中です。</p>
+        </div>
+
+    </main>
+
+    <footer id="page-footer" class="glass-panel mt-auto py-4 sticky bottom-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <a id="prev-btn" href="#" class="glass-panel text-white font-semibold py-2 px-4 rounded-lg btn-hover opacity-50 pointer-events-none">
+                ← 前の候補者
+            </a>
+            <a id="next-btn" href="#" class="glass-panel text-white font-semibold py-2 px-4 rounded-lg btn-hover opacity-50 pointer-events-none">
+                次の候補者 →
+            </a>
+        </div>
+    </footer>
+
+     <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const mainContent = document.getElementById('main-content');
+            const pageFooter = document.getElementById('page-footer');
+
+            let allMembersData = [];
+            let suggestionsData = {};
+
+            // suggest.jsonを読み込む
+            try {
+                const response = await fetch('suggest.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const jsonData = await response.json();
+                
+                // ナビゲーション用の配列を作成
+                allMembersData = jsonData.map(member => ({
+                    id: member.従業員番号,
+                    name: member.名前
+                }));
+
+                // IDをキーにした検索用のオブジェクトを作成
+                suggestionsData = jsonData.reduce((acc, member) => {
+                    acc[member.従業員番号] = member;
+                    return acc;
+                }, {});
+
+            } catch (error) {
+                console.error("JSONデータの読み込みに失敗しました:", error);
+                showError("データの読み込みに失敗しました。");
+                return;
+            }
+
+            // ページの描画処理
+            function renderPage(id) {
+                const memberData = suggestionsData[id];
+
+                if (!memberData) {
+                    showError("該当する候補者が見つかりません。");
+                    return;
+                }
+
+                // 基本情報を表示
+                document.getElementById('member-id').textContent = `従業員番号: ${memberData.従業員番号}`;
+                document.getElementById('member-name').textContent = memberData.名前;
+                document.getElementById('member-department').textContent = `所属: ${memberData.現在の部署名}`;
+                document.getElementById('member-job-title').textContent = `職種: ${memberData.現在の職種}`;
+                document.title = `${memberData.名前}さんの候補案`;
+
+                // 詳細データがあるかチェック
+                if (memberData.プロファイル分析サマリー) {
+                    document.getElementById('suggestion-content').style.display = 'block';
+                    document.getElementById('no-data-message').style.display = 'none';
+                    
+                    // プロファイルサマリーを表示
+                    const summaryContainer = document.getElementById('profile-summary');
+                    summaryContainer.innerHTML = ''; // コンテナをクリア
+                    for (const [key, value] of Object.entries(memberData.プロファイル分析サマリー)) {
+                        summaryContainer.innerHTML += `
+                            <div>
+                                <h4 class="font-bold text-lg text-cyan-300">${key}</h4>
+                                <p class="text-gray-200 whitespace-pre-line">${value}</p>
+                            </div>
+                        `;
+                    }
+
+                    // ベスト/ワースト候補を表示
+                    renderSuggestionTable('best-suggestions', memberData['異動先候補 TOP5'], true);
+                    renderSuggestionTable('worst-suggestions', memberData['異動先候補ワースト3(同職種内)'], false);
+
+                } else {
+                    // 詳細データがない場合
+                    document.getElementById('suggestion-content').style.display = 'none';
+                    document.getElementById('no-data-message').style.display = 'block';
+                }
+
+                // ナビゲーションボタンを更新
+                updateNavButtons(id);
+            }
+            
+            // 候補テーブルを描画する関数
+            function renderSuggestionTable(elementId, data, isBest) {
+                const container = document.getElementById(elementId);
+                if (!data || data.length === 0) {
+                    container.innerHTML = `<p class="text-gray-300">データがありません。</p>`;
+                    return;
+                }
+
+                const scoreHeader = isBest ? `<th class="text-left">スコア</th>` : '';
+                const headerClass = isBest ? 'text-green-300' : 'text-red-400';
+
+                let tableHTML = `<table class="w-full text-left table-glass rounded-lg overflow-hidden"><thead><tr><th class="w-1/12 text-left">順位</th><th class="w-4/12 text-left">部署名</th>${scoreHeader}<th class="w-7/12 text-left">理由</th></tr></thead><tbody>`;
+                
+                data.forEach(item => {
+                    const scoreCell = isBest ? `<td class="font-bold ${headerClass}">${item['スコア']}</td>` : '';
+                    let reasonHTML = '';
+                    if (typeof item.理由 === 'object' && item.理由 !== null) {
+                        reasonHTML = Object.entries(item.理由).map(([key, value]) => 
+                            `<div class="mb-2"><strong class="font-semibold text-cyan-400">${key.replace(/_/g, ' ')}:</strong><br>${value}</div>`
+                        ).join('');
+                    } else {
+                        reasonHTML = item.理由 || '';
+                    }
+
+                    tableHTML += `
+                        <tr class="hover:bg-white/5">
+                            <td class="font-bold text-xl ${headerClass}">${item['順位']}</td>
+                            <td>${item['部署名']}</td>
+                            ${scoreCell}
+                            <td>${reasonHTML}</td>
+                        </tr>
+                    `;
+                });
+                
+                tableHTML += `</tbody></table>`;
+                container.innerHTML = tableHTML;
+            }
+
+            // ナビゲーションボタンを更新する関数
+            function updateNavButtons(currentId) {
+                const currentIndex = allMembersData.findIndex(m => m.id == currentId);
+                const prevBtn = document.getElementById('prev-btn');
+                const nextBtn = document.getElementById('next-btn');
+
+                // 前の候補者
+                if (currentIndex > 0) {
+                    const prevId = allMembersData[currentIndex - 1].id;
+                    prevBtn.href = `?id=${prevId}`;
+                    prevBtn.classList.remove('opacity-50', 'pointer-events-none');
+                } else {
+                    prevBtn.href = '#';
+                    prevBtn.classList.add('opacity-50', 'pointer-events-none');
+                }
+
+                // 次の候補者
+                if (currentIndex < allMembersData.length - 1) {
+                    const nextId = allMembersData[currentIndex + 1].id;
+                    nextBtn.href = `?id=${nextId}`;
+                    nextBtn.classList.remove('opacity-50', 'pointer-events-none');
+                } else {
+                    nextBtn.href = '#';
+                    nextBtn.classList.add('opacity-50', 'pointer-events-none');
+                }
+            }
+            
+            // エラーメッセージを表示する関数
+            function showError(message) {
+                mainContent.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center text-center">
+                        <h2 class="text-3xl font-bold text-white mb-4">${message}</h2>
+                        <p class="text-gray-300">候補者一覧ページから候補者を選択してください。</p>
+                        <a href="matching.html" class="mt-6 inline-block glass-panel text-white font-semibold py-2 px-4 rounded-lg btn-hover">
+                            一覧ページに戻る
+                        </a>
+                    </div>
+                `;
+                pageFooter.style.display = 'none';
+            }
+
+            // 初期化処理
+            const urlParams = new URLSearchParams(window.location.search);
+            const currentId = urlParams.get('id');
+            
+            if (currentId) {
+                renderPage(currentId);
+            } else {
+                showError("従業員IDが指定されていません。");
+            }
+        });
+    </script>
+</body>
+</html>
