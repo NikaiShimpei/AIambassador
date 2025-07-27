@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS異動対象者マッチングロジック ✨</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .infographic-card {
+            background-color: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border-left-width: 8px;
+        }
+        .infographic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.15), 0 15px 15px -10px rgba(0, 0, 0, 0.08);
+        }
+        .percentage-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 800;
+            font-size: 2rem;
+            color: white;
+            flex-shrink: 0;
+        }
+        .icon-bg {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #e0e7ff;
+        }
+        .connector {
+            width: 2px;
+            height: 50px;
+            background-color: #cbd5e1;
+            margin: 0 auto;
+        }
+        .impact-meter {
+            width: 100%;
+            height: 25px;
+            background: linear-gradient(90deg, #6EE7B7, #FDE047, #F87171);
+            border-radius: 9999px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #e5e7eb;
+        }
+        .impact-zone {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+        
+        <!-- ヘッダー -->
+        <header class="text-center mb-12">
+            <div class="flex justify-center mb-6">
+                <button onclick="window.location.href='https://nikaishimpei.github.io/calipList/matching.html'" class="bg-gray-100 text-black font-semibold py-2 px-6 rounded-lg hover:bg-gray-200 transition-all duration-300 shadow-md hover:shadow-lg">
+                    マッチングトップへ戻る
+                </button>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600 mb-2">CS異動マッチングの舞台裏</h1>
+            <p class="text-lg text-gray-600">AIと専門家の目で、最高のキャリアの出会いを創り出すロジック</p>
+        </header>
+
+        <!-- メインコンテンツ -->
+        <main>
+            <!-- 評価フレームワーク -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold text-center mb-10">マッチングスコアの5つの柱</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- 1. 適合性分析 -->
+                    <div class="infographic-card border-cyan-400 lg:col-span-1 md:col-span-2">
+                        <div class="flex flex-col sm:flex-row items-center gap-6">
+                            <div class="percentage-circle bg-cyan-400">25%</div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">適合性分析</h3>
+                                <p class="text-gray-600">「人」と「チーム」の相性は？</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 pl-4 border-l-2 border-gray-200">
+                            <p class="font-semibold">個人の性格や価値観が、配属先のチーム文化や顧客特性にフィットするかを分析します。</p>
+                        </div>
+                    </div>
+
+                    <!-- 2. スキル適合性 -->
+                    <div class="infographic-card border-teal-400 lg:col-span-1">
+                        <div class="flex flex-col sm:flex-row items-center gap-6">
+                            <div class="percentage-circle bg-teal-400">20%</div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">スキル適合性</h3>
+                                <p class="text-gray-600">「強み」は活かせる？</p>
+                            </div>
+                        </div>
+                         <div class="mt-6 pl-4 border-l-2 border-gray-200">
+                            <p class="font-semibold">本人のスキルや強みが、募集ポジションで求められる要件と合致するかを評価します。</p>
+                        </div>
+                    </div>
+
+                    <!-- 3. 成長機会 -->
+                    <div class="infographic-card border-emerald-400 lg:col-span-1">
+                        <div class="flex flex-col sm:flex-row items-center gap-6">
+                            <div class="percentage-circle bg-emerald-400">20%</div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">成長機会</h3>
+                                <p class="text-gray-600">未来の「なりたい姿」へ</p>
+                            </div>
+                        </div>
+                         <div class="mt-6 pl-4 border-l-2 border-gray-200">
+                            <p class="font-semibold">上長が期待する成長の方向性と、異動先で得られる経験が、本人のキャリアを後押しするかを見極めます。</p>
+                        </div>
+                    </div>
+
+                    <!-- 4. 既存スキル活用度 -->
+                     <div class="infographic-card border-amber-400 lg:col-start-1 lg:col-end-2 md:col-start-1 md:col-end-3 lg:w-full">
+                        <div class="flex flex-col sm:flex-row items-center gap-6">
+                            <div class="percentage-circle bg-amber-400">20%</div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">既存スキル活用度</h3>
+                                <p class="text-gray-600">「今の経験」も大切に</p>
+                            </div>
+                        </div>
+                         <div class="mt-6 pl-4 border-l-2 border-gray-200">
+                            <p class="font-semibold">新しい挑戦だけでなく、これまでの経験がしっかり活かせる異動かを重視します。</p>
+                        </div>
+                    </div>
+
+                    <!-- 5. 総合的判断 -->
+                    <div class="infographic-card border-orange-400 lg:col-start-2 lg:col-end-4 md:col-start-1 md:col-end-3">
+                         <div class="flex flex-col sm:flex-row items-center gap-6">
+                            <div class="percentage-circle bg-orange-400">15%</div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">総合的判断</h3>
+                                <p class="text-gray-600">専門家の視点</p>
+                            </div>
+                        </div>
+                         <div class="mt-6 pl-4 border-l-2 border-gray-200">
+                            <p class="font-semibold">キャリアコンサルタントが、市場動向や本人の潜在能力など、数値化できない要素を総合的に判断します。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AIエンジン -->
+            <section class="text-center my-20">
+                <div class="connector"></div>
+                <div class="inline-block bg-white p-6 rounded-full shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-500 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                </div>
+                 <h2 class="text-3xl font-bold text-center mt-4 mb-2">AIがココロを読む</h2>
+                 <p class="max-w-2xl mx-auto text-gray-600">最新のAI技術が、面談記録やレポートの言葉の裏にある「ニュアンス」まで読み解き、最適なマッチングを導き出します。</p>
+                <div class="connector"></div>
+            </section>
+
+
+            <!-- 制約条件 -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold text-center mb-10">大切なルールと心構え</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- 異動インパクト -->
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <h3 class="font-bold text-xl mb-4 text-center">異動のインパクトを考える</h3>
+                        <p class="text-sm text-gray-600 mb-4 text-center">新しい環境は成長のチャンス！でも、無理は禁物。変化の大きさを3つのゾーンで捉えます。</p>
+                        <div class="impact-meter">
+                            <div class="impact-zone" style="left: 0; width: 33%;">Comfort</div>
+                            <div class="impact-zone" style="left: 33%; width: 52%;">Learning</div>
+                            <div class="impact-zone" style="left: 85%; width: 15%;">Panic</div>
+                        </div>
+                        <div class="flex justify-between text-xs mt-2 px-1">
+                            <span>心地よい</span>
+                            <span class="font-bold">最高の成長</span>
+                            <span>要注意</span>
+                        </div>
+                    </div>
+
+                    <!-- その他のルール -->
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <h3 class="font-bold text-xl mb-4 text-center">忘れてはいけないこと</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-3 mt-1">✔</span>
+                                <span><strong class="text-green-600">本人の強い意志は最優先：</strong>「この異動なら退職」などの声は絶対に見逃しません。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-3 mt-1">✔</span>
+                                <span><strong class="text-green-600">クリエイティブ職：</strong>専門性を尊重し、基本は同じ職種内での異動を推奨します。</span>
+                            </li>
+                             <li class="flex items-start">
+                                <span class="text-red-500 mr-3 mt-1">✖</span>
+                                <span><strong class="text-red-600">ワーストマッチも提示：</strong>成長が難しいと思われる部署も正直にお伝えします。</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-16 py-6 border-t">
+            <div class="flex justify-center mb-4">
+                <button onclick="window.location.href='https://nikaishimpei.github.io/calipList/matching.html'" class="bg-gray-100 text-black font-semibold py-2 px-6 rounded-lg hover:bg-gray-200 transition-all duration-300 shadow-md hover:shadow-lg">
+                    マッチングトップへ戻る
+                </button>
+            </div>
+            <p class="text-gray-500">&copy; 2025 Your Company. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
