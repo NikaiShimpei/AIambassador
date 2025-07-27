@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS異動者 異動先候補</title>
+    <!-- Tailwind CSSを読み込み -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Google Fontsから M PLUS 1 を読み込み */
+        @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@400;500;700&display=swap');
+        
+        body {
+            /* M PLUS 1 フォントを適用 */
+            font-family: 'M PLUS 1', sans-serif;
+            /* Gemini風のグラデーション背景 */
+            background: linear-gradient(135deg, #4285F4 0%, #7B52C6 50%, #E94235 100%);
+            background-attachment: fixed; /* スクロールしても背景を固定 */
+            color: #f0f0f0; /* 基本の文字色を明るく */
+        }
+
+        /* グラスモーフィズム（すりガラス効果）のためのスタイル */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.1); /* 半透明の白 */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px); /* Safari対応 */
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        }
+
+        /* スクロールバーのスタイル */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ボタンのホバーエフェクト */
+        .btn-hover {
+            transition: all 0.2s ease-in-out;
+        }
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* カードのホバーエフェクト */
+        .card-hover {
+            transition: all 0.2s ease-in-out;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        /* アクティブなソートボタンのスタイル */
+        .sort-btn.active {
+            background: rgba(255, 255, 255, 0.25);
+            color: white;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+
+    <!-- ヘッダー -->
+    <header class="glass-panel sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <h1 class="text-xl sm:text-2xl font-bold text-white">CS異動者 異動先候補</h1>
+                <button class="glass-panel text-white font-semibold py-2 px-4 rounded-lg btn-hover">
+                    トップページに戻る
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8">
+        
+        <!-- コントロールパネル -->
+        <div class="glass-panel p-4 rounded-xl mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- 検索フィルター -->
+                <div class="md:col-span-1">
+                    <label for="search-filter" class="block text-sm font-medium text-gray-200 mb-1">フィルタ</label>
+                    <input type="text" id="search-filter" placeholder="名前、所属、職名で検索..." class="w-full p-2 border border-gray-300/20 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 bg-white/10 text-white placeholder-gray-300">
+                </div>
+                <!-- 並び替え -->
+                <div class="md:col-span-2">
+                    <label class="block text-sm font-medium text-gray-200 mb-1">並び替え</label>
+                    <div class="flex flex-wrap gap-2">
+                        <button data-sort="id" class="sort-btn flex-grow sm:flex-grow-0 bg-white/10 border border-white/20 text-gray-200 py-2 px-4 rounded-lg btn-hover active">ID</button>
+                        <button data-sort="name" class="sort-btn flex-grow sm:flex-grow-0 bg-white/10 border border-white/20 text-gray-200 py-2 px-4 rounded-lg btn-hover">名前</button>
+                        <button data-sort="department" class="sort-btn flex-grow sm:flex-grow-0 bg-white/10 border border-white/20 text-gray-200 py-2 px-4 rounded-lg btn-hover">所属部署</button>
+                        <button data-sort="jobTitle" class="sort-btn flex-grow sm:flex-grow-0 bg-white/10 border border-white/20 text-gray-200 py-2 px-4 rounded-lg btn-hover">職名</button>
+                    </div>
+                </div>
+            </div>
+            <div id="member-count" class="text-right text-sm text-gray-300 mt-4"></div>
+        </div>
+
+        <!-- 候補者一覧 -->
+        <div id="member-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+            <!-- JavaScriptによってここに候補者カードが挿入されます -->
+        </div>
+        
+        <!-- ローディングスピナー (通常は表示されない) -->
+        <div id="loading" class="hidden text-center py-10">
+             <p class="mt-2 text-gray-300">データを読み込んでいます...</p>
+        </div>
+
+        <!-- 結果なしメッセージ -->
+        <div id="no-results" class="hidden text-center py-10 glass-panel rounded-xl">
+            <h3 class="text-lg font-semibold text-white">該当する候補者が見つかりません</h3>
+            <p class="text-gray-300 mt-1">検索条件を変更してください。</p>
+        </div>
+
+    </main>
+
+    <!-- フッター -->
+    <footer class="glass-panel mt-12 py-6">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <button class="glass-panel text-white font-semibold py-2 px-4 rounded-lg btn-hover">
+                トップページに戻る
+            </button>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const memberListContainer = document.getElementById('member-list');
+            const searchInput = document.getElementById('search-filter');
+            const sortButtons = document.querySelectorAll('.sort-btn');
+            const memberCountElement = document.getElementById('member-count');
+            const loadingElement = document.getElementById('loading');
+            const noResultsElement = document.getElementById('no-results');
+
+            // メンバーデータ (161名)
+            const members = [
+              { "id": 1050013, "name": "玉置 駿哉", "department": "ＭＳＣＳ局ＣＲＭ推", "jobTitle": "STP職" }, { "id": 1050015, "name": "牧野 壮馬", "department": "ＭＳＣＳ局ＤＰＦ推進", "jobTitle": "STP職" }, { "id": 1053421, "name": "曽根原 正樹", "department": "コマＤＵアカプロ一部", "jobTitle": "BD職" }, { "id": 1054278, "name": "上門 雄也", "department": "ＧＰ局Ｇマーケ三部", "jobTitle": "STP職" }, { "id": 1055367, "name": "地家 夏代", "department": "Hテクノロジーズ", "jobTitle": "マネプロ職" }, { "id": 1056865, "name": "木屋村 さやか", "department": "十二局第四ＡＣ部", "jobTitle": "BP職" }, { "id": 1056876, "name": "松田 健太郎", "department": "十二局第八ＡＣ部", "jobTitle": "BP職" }, { "id": 1056878, "name": "山本 一貴", "department": "第三ＢＤ局（グループ", "jobTitle": "BP職" }, { "id": 1056944, "name": "澤田 啓", "department": "十一局第一ＡＣ部", "jobTitle": "BP職" }, { "id": 1056952, "name": "左川 寛人", "department": "四局第七ＡＣ部", "jobTitle": "BP職" }, { "id": 1056953, "name": "嶋田 圭吾", "department": "六局（ホームＧ）", "jobTitle": "BP職" }, { "id": 1056964, "name": "橋本 紘平", "department": "十局第一ＡＣ部", "jobTitle": "BP職" }, { "id": 1056973, "name": "臼田 倭人", "department": "八局第三ＡＣ部", "jobTitle": "BP職" }, { "id": 1056974, "name": "久木田 寧音", "department": "二局第八ＡＣ部", "jobTitle": "BP職" }, { "id": 1057042, "name": "張 蘊瑶", "department": "十四局第一ＡＣ部", "jobTitle": "BP職" }, { "id": 1071666, "name": "矢崎 綾香", "department": "統合メディアプラ三部", "jobTitle": "メディアPL職" }, { "id": 1054542, "name": "石北 萌", "department": "ＣＩ総務室コーポＧ", "jobTitle": "マネプロ職" }, { "id": 1056880, "name": "米澤 直史", "department": "出版エンエンタ推進部", "jobTitle": "BP職" }, { "id": 1056881, "name": "信戸 浩太郎", "department": "十三局第二ＡＣ部", "jobTitle": "BP職" }, { "id": 1056948, "name": "若林 真悠", "department": "四局第一ＡＣ部", "jobTitle": "BP職" }, { "id": 1056959, "name": "林 幹一郎", "department": "七局第九ＡＣ部", "jobTitle": "BP職" }, { "id": 1056970, "name": "大道 廉太郎", "department": "十五局第一ＡＣ部", "jobTitle": "BP職" }, { "id": 1056971, "name": "白根 采", "department": "七局第七ＡＣ部", "jobTitle": "BP職" }, { "id": 1071476, "name": "鍵屋 彩花", "department": "関西ＭＢテラＢ推", "jobTitle": "メディアPD職" }, { "id": 1047134, "name": "大池 由晃", "department": "出版エンＢＤＢＰ四部", "jobTitle": "BP職" }, { "id": 1047200, "name": "牟田 悠希", "department": "ＭＳＣＳ局ＣＲＭ推", "jobTitle": "STP職" }, { "id": 1054280, "name": "三牧 和弥", "department": "ＣＣ局リテ＆トレマ", "jobTitle": "STP職" }, { "id": 1055834, "name": "ニン ゲツ", "department": "ＳＴＰ局Ｇプラ部", "jobTitle": "STP職" }, { "id": 1056753, "name": "髙須 雪絵", "department": "ＣＸＣＲ局一部", "jobTitle": "CR職" }, { "id": 1056951, "name": "東山 航大", "department": "十局（グループ）", "jobTitle": "BP職" }, { "id": 1056961, "name": "張 佳玉", "department": "四局第五ＡＣ部", "jobTitle": "BP職" }, { "id": 1056966, "name": "渡邊 覚斗", "department": "十局第五ＡＣ部", "jobTitle": "BP職" }, { "id": 1056972, "name": "安部 未歩子", "department": "七局第四ＡＣ部", "jobTitle": "BP職" }, { "id": 1071530, "name": "磯田 知輝", "department": "統合メディアプラ一部", "jobTitle": "メディアPL職" }, { "id": 1051901, "name": "上利 真悠子", "department": "ＳＴＰ局石井Ｔ", "jobTitle": "STP職" }, { "id": 1051902, "name": "芥川 栞太", "department": "八局第三ＡＣ部", "jobTitle": "BP職" }, { "id": 1051903, "name": "伊賀 理心", "department": "ＣＸＣＲ局一部", "jobTitle": "CR職" }, { "id": 1051905, "name": "出雲 大", "department": "ＳＴＰ局小田部Ｔ", "jobTitle": "STP職" }, { "id": 1051906, "name": "井田 絢子", "department": "出版エンＢＤＢＰ三部", "jobTitle": "BP職" }, { "id": 1051907, "name": "井谷 桂奈子", "department": "十一局第六ＡＣ部", "jobTitle": "BP職" }, { "id": 1051908, "name": "伊東 隼汰", "department": "テーマＢＤＢＰ四部", "jobTitle": "BP職" }, { "id": 1051909, "name": "占部 奏太", "department": "六局（ビューティーＧ", "jobTitle": "BP職" }, { "id": 1051910, "name": "惠阪 あゆみ", "department": "六局第二ＡＣ部", "jobTitle": "BP職" }, { "id": 1051911, "name": "近江 里菜", "department": "十二局第八ＡＣ部", "jobTitle": "BP職" }, { "id": 1051912, "name": "大河原 陸", "department": "八局第四ＡＣ部", "jobTitle": "BP職" }, { "id": 1051913, "name": "岡本 廉", "department": "Hコンサル", "jobTitle": "STP職" }, { "id": 1051914, "name": "奥村 耕成", "department": "ＳＴＰ局細野Ｔ", "jobTitle": "STP職" }, { "id": 1051915, "name": "乙藤 康太郎", "department": "ＣＲ局水野Ｔ", "jobTitle": "CR職" }, { "id": 1051916, "name": "小野 万優子", "department": "ＳＴＰ局佐藤Ｔ", "jobTitle": "STP職" }, { "id": 1051918, "name": "勝木 英行", "department": "ＣＲ局石下Ｔ", "jobTitle": "CR職" }, { "id": 1051919, "name": "勝田 涼介", "department": "テーマＢＤＢＰ五部", "jobTitle": "BP職" }, { "id": 1051920, "name": "金井 亮雅", "department": "ＣＸＣＲ局ＣＸ＆ＳＰ", "jobTitle": "STP職" }, { "id": 1051921, "name": "金子 つばさ", "department": "ＣＣ局コマースマーケ", "jobTitle": "STP職" }, { "id": 1051922, "name": "川合 日菜子", "department": "ＣＸＣＲ局三部", "jobTitle": "CR職" }, { "id": 1051923, "name": "川端 真央", "department": "八局第六ＡＣ部", "jobTitle": "BP職" }, { "id": 1051924, "name": "木曽 律子", "department": "Hテクノロジーズ", "jobTitle": "マネプロ職" }, { "id": 1051925, "name": "北 帆夏", "department": "ＣＩ経理財務第一主計", "jobTitle": "マネプロ職" }, { "id": 1051926, "name": "北里 礼", "department": "ＧＳＴＰ局第一", "jobTitle": "STP職" }, { "id": 1051929, "name": "倉嶋 崇", "department": "ＣＲ局引間Ｔ", "jobTitle": "CR職" }, { "id": 1051930, "name": "倉地 宏典", "department": "ＳＴＰ局保田Ｔ", "jobTitle": "STP職" }, { "id": 1051931, "name": "小池 恵理菜", "department": "十四局第五ＡＣ部", "jobTitle": "BP職" }, { "id": 1051932, "name": "小西 可弥子", "department": "五局第六ＡＣ部", "jobTitle": "BP職" }, { "id": 1051933, "name": "小林 史佳", "department": "関西一局一プラチーム", "jobTitle": "STP職" }, { "id": 1051934, "name": "小林 雅弥", "department": "八局第六ＡＣ部", "jobTitle": "BP職" }, { "id": 1051935, "name": "小林 優希", "department": "六局（ビューティーＧ", "jobTitle": "BP職" }, { "id": 1051936, "name": "小松﨑 美怜", "department": "ＣＲ局波多野Ｔ", "jobTitle": "CR職" }, { "id": 1051937, "name": "坂田 奈津", "department": "ＳＴＰ局吉田Ｔ", "jobTitle": "STP職" }, { "id": 1051938, "name": "佐藤 春花", "department": "四局第四ＡＣ部", "jobTitle": "BP職" }, { "id": 1051939, "name": "佐藤 友香", "department": "Hデザイン", "jobTitle": "CR職" }, { "id": 1051940, "name": "佐野 應", "department": "十局第四ＡＣ部", "jobTitle": "BP職" }, { "id": 1051941, "name": "鮫嶋 一樹", "department": "HDY ONE", "jobTitle": "BP職" }, { "id": 1051942, "name": "椎名 万里子", "department": "七局第四ＡＣ部", "jobTitle": "BP職" }, { "id": 1051943, "name": "渋谷 宜申", "department": "二局第三ＡＣ部", "jobTitle": "BP職" }, { "id": 1051945, "name": "随念 佳祐", "department": "四局第四ＡＣ部", "jobTitle": "BP職" }, { "id": 1051946, "name": "鈴木 研史郎", "department": "ＳＴＰ局事業プラ一", "jobTitle": "STP職" }, { "id": 1051947, "name": "鈴木 賀子", "department": "九局第八ＡＣ部", "jobTitle": "BP職" }, { "id": 1051948, "name": "鈴木 崚平", "department": "十二局第八ＡＣ部", "jobTitle": "BP職" }, { "id": 1051949, "name": "住 奈菜子", "department": "十一局第三ＡＣ部", "jobTitle": "BP職" }, { "id": 1051950, "name": "関 有宥子", "department": "十五局第六ＡＣ部", "jobTitle": "BP職" }, { "id": 1051951, "name": "瀬名 真尋", "department": "四局第二ＡＣ部", "jobTitle": "BP職" }, { "id": 1051952, "name": "髙岡 亮祐", "department": "七局第八ＡＣ部", "jobTitle": "BP職" }, { "id": 1051954, "name": "立薗 駿", "department": "関西一局二ＡＣ部", "jobTitle": "BP職" }, { "id": 1051955, "name": "田中 稔也", "department": "ＨｃＡＩ Ｒ＆ＤＧ", "jobTitle": "研究開発職" }, { "id": 1051956, "name": "田平 美来", "department": "テーマＢＤＢＰ二部", "jobTitle": "BP職" }, { "id": 1051957, "name": "田部井 達也", "department": "四局第三ＡＣ部", "jobTitle": "BP職" }, { "id": 1051958, "name": "都竹 卓哉", "department": "五局第四ＡＣ部", "jobTitle": "BP職" }, { "id": 1051959, "name": "土井 恵璃奈", "department": "十局第三ＡＣ部", "jobTitle": "BP職" }, { "id": 1051960, "name": "戸川 凌", "department": "TH", "jobTitle": "STP職" }, { "id": 1051961, "name": "殿村 豪太", "department": "ＣＲ局宮永Ｔ", "jobTitle": "CR職" }, { "id": 1051962, "name": "永井 文人", "department": "中部ＢＤ局第二ＡＣ部", "jobTitle": "BP職" }, { "id": 1051963, "name": "永井 志帆", "department": "ＣＲ局藤塚Ｔ", "jobTitle": "CR職" }, { "id": 1051964, "name": "中島 拓幹", "department": "ＣＩ経理財務第二主計", "jobTitle": "マネプロ職" }, { "id": 1051965, "name": "仲田 圭吾", "department": "第三ＢＤ局（グループ", "jobTitle": "BP職" }, { "id": 1051966, "name": "中野 はな", "department": "三局第五ＡＣ部", "jobTitle": "BP職" }, { "id": 1051967, "name": "中村 拳", "department": "ＳＴＰ局古庄Ｔ", "jobTitle": "STP職" }, { "id": 1051968, "name": "夏堀 雄太", "department": "ＨＣマーケＴＣ開発4", "jobTitle": "研究開発職" }, { "id": 1051969, "name": "南部 亜紀", "department": "ＧＰ局Ｇマーケ二部", "jobTitle": "STP職" }, { "id": 1051970, "name": "新山 陽花", "department": "十二局第七ＡＣ部", "jobTitle": "BP職" }, { "id": 1051971, "name": "西村 友里", "department": "ＳＴＰ局事業プラ二", "jobTitle": "STP職" }, { "id": 1051972, "name": "林 明香里", "department": "十三局第二ＡＣ部", "jobTitle": "BP職" }, { "id": 1051973, "name": "半田 恵理花", "department": "九局第四ＡＣ部", "jobTitle": "BP職" }, { "id": 1051974, "name": "福地 智樹", "department": "十局（グループ）", "jobTitle": "BP職" }, { "id": 1051975, "name": "藤井 健太", "department": "九局第二ＡＣ部", "jobTitle": "BP職" }, { "id": 1051976, "name": "藤波 真由", "department": "ＰＲ局プラ一部", "jobTitle": "ＰＲ職" }, { "id": 1051977, "name": "別所 優斗", "department": "ＧＰ局Ｇマーケ一部", "jobTitle": "STP職" }, { "id": 1051978, "name": "堀 勇一", "department": "十二局第六ＡＣ部", "jobTitle": "BP職" }, { "id": 1051979, "name": "堀 裕貴", "department": "九局第三ＡＣ部", "jobTitle": "BP職" }, { "id": 1051980, "name": "堀池 駿介", "department": "ＣＲ局山﨑Ｔ", "jobTitle": "CR職" }, { "id": 1051981, "name": "松崎 二千奈", "department": "五局第一ＡＣ部", "jobTitle": "BP職" }, { "id": 1051982, "name": "松本 雄太", "department": "九局第四ＡＣ部", "jobTitle": "BP職" }, { "id": 1051984, "name": "緑川 恵", "department": "ＰＲ局プラ二部", "jobTitle": "ＰＲ職" }, { "id": 1051985, "name": "箕田 和記", "department": "七局第七ＡＣ部", "jobTitle": "BP職" }, { "id": 1051986, "name": "山口 さくら", "department": "八局第二ＡＣ部", "jobTitle": "BP職" }, { "id": 1051987, "name": "山崎 茜", "department": "発想技術開発一Ｇ", "jobTitle": "研究開発職" }, { "id": 1051988, "name": "山田 雅", "department": "十五局第二ＡＣ部", "jobTitle": "BP職" }, { "id": 1051989, "name": "山村 健人", "department": "七局第一ＡＣ部", "jobTitle": "BP職" }, { "id": 1051990, "name": "吉岡 美咲", "department": "関西二局二ＡＣ部", "jobTitle": "BP職" }, { "id": 1051991, "name": "吉川 明成", "department": "第三ＢＤ局（グループ", "jobTitle": "BP職" }, { "id": 1051992, "name": "吉沢 憲吾", "department": "第三ＢＤ局（グループ", "jobTitle": "BP職" }, { "id": 1051993, "name": "吉田 陸人", "department": "TH", "jobTitle": "BP職" }, { "id": 1051994, "name": "吉野 藍", "department": "十四局第五ＡＣ部", "jobTitle": "BP職" }, { "id": 1051995, "name": "凌 智寛", "department": "十四局第一ＡＣ部", "jobTitle": "BP職" }, { "id": 1051996, "name": "和田 周", "department": "ＨＣマーケＴＣ開発1", "jobTitle": "研究開発職" }, { "id": 1051997, "name": "渡邉 大輝", "department": "十三局第一ＡＣ部", "jobTitle": "BP職" }, { "id": 1057045, "name": "松田 七海", "department": "ＣＩ法務第二法務Ｇ", "jobTitle": "マネプロ職" }, { "id": 1071585, "name": "足達 潮香", "department": "ＰＦ戦略局第一部", "jobTitle": "メディアPD職" }, { "id": 1071587, "name": "稲葉 智沙貴", "department": "ＡＢ戦略局一部", "jobTitle": "BD職" }, { "id": 1071588, "name": "岩﨑 かな子", "department": "テラ局テレビ一部", "jobTitle": "メディアPD職" }, { "id": 1071589, "name": "浦田 幹", "department": "HDY ONE", "jobTitle": "メディアPD職" }, { "id": 1071590, "name": "大嶋 鴻太", "department": "テラ局テレビ二部", "jobTitle": "メディアPD職" }, { "id": 1071591, "name": "岡村 歩実", "department": "テラ局テレビ三部", "jobTitle": "メディアPD職" }, { "id": 1071593, "name": "加藤 愛望", "department": "統合メディアプラ二部", "jobTitle": "メディアPL職" }, { "id": 1071594, "name": "國吉 輝", "department": "ＡＢ戦略局二部", "jobTitle": "BD職" }, { "id": 1071595, "name": "佐藤 亜美", "department": "ＰＦ戦略局第三部", "jobTitle": "メディアPD職" }, { "id": 1071596, "name": "佐原 利周", "department": "統合メディアプラ三部", "jobTitle": "メディアPL職" }, { "id": 1071597, "name": "澤津橋 歩果", "department": "ＣＩ人事ＴＡ部", "jobTitle": "マネプロ職" }, { "id": 1071598, "name": "茂田 夕渚", "department": "HDY アウトドア", "jobTitle": "メディアPD職" }, { "id": 1071599, "name": "清水 直志", "department": "新雑局デジアカ推", "jobTitle": "メディアPD職" }, { "id": 1071600, "name": "鈴木 詩音莉", "department": "統合ＡＰ局ＡＳ推", "jobTitle": "メディアPL職" }, { "id": 1071601, "name": "高坂 璃央", "department": "HDY ONE", "jobTitle": "メディアPD職" }, { "id": 1071602, "name": "高田 凜太郎", "department": "関西ＭＢテレビＢ", "jobTitle": "メディアPD職" }, { "id": 1071604, "name": "露木 彩子", "department": "テラ局テレビ四部", "jobTitle": "メディアPD職" }, { "id": 1071605, "name": "永作 光", "department": "ＰＦ戦略局メディア", "jobTitle": "メディアPD職" }, { "id": 1071606, "name": "中澤 俊輔", "department": "ＰＦ戦略局第二部", "jobTitle": "メディアPD職" }, { "id": 1071607, "name": "夏見 真実", "department": "ＰＦ戦略局第三部", "jobTitle": "メディアPD職" }, { "id": 1071608, "name": "原口 大地", "department": "HDY ONE", "jobTitle": "メディアPD職" }, { "id": 1071609, "name": "引地 美遥", "department": "HDY ONE", "jobTitle": "メディアPD職" }, { "id": 1071610, "name": "平川 智也", "department": "Hテクノロジーズ", "jobTitle": "BD職" }, { "id": 1071611, "name": "星 ひかり", "department": "HDY ONE", "jobTitle": "メディアPD職" }, { "id": 1071613, "name": "村松 昂", "department": "テラ局スポエリ二部", "jobTitle": "メディアPD職" }, { "id": 1071615, "name": "八乙女 ゆい", "department": "統合メディアプラ一部", "jobTitle": "メディアPL職" }, { "id": 1071616, "name": "湯川 適", "department": "統合ＡＰＯＴＴ部", "jobTitle": "メディアPD職" }, { "id": 1071617, "name": "吉田 哲哉", "department": "HDY ONE", "jobTitle": "メディアPD職" }, { "id": 1071618, "name": "吉野 葵", "department": "統合メディアプラ三部", "jobTitle": "メディアPL職" }, { "id": 1071619, "name": "米澤 唯", "department": "HDY ONE", "jobTitle": "メディアPD職" }, { "id": 1071620, "name": "藁谷 未来也", "department": "テラ局テレビ二部", "jobTitle": "メディアPD職" }, { "id": 1071863, "name": "伊藤 圭吾", "department": "メＤＵ事経室経企部", "jobTitle": "マネプロ職" }, { "id": 1071872, "name": "細井 晃貴", "department": "Hテクノロジーズ", "jobTitle": "BD職" }, { "id": 1071895, "name": "滝井 裕樹", "department": "HDY ONE", "jobTitle": "メディアPD職" }, { "id": 1071905, "name": "片山 寛知", "department": "統合メディアプラ二部", "jobTitle": "メディアPL職" }, { "id": 1071907, "name": "本吉 秀輝", "department": "統合メディアプラ一部", "jobTitle": "メディアPL職" }
+            ];
+
+            let currentSort = { key: 'id', order: 'asc' };
+
+            // メンバー一覧を描画する
+            function renderMembers(data) {
+                memberListContainer.innerHTML = '';
+                if (data.length === 0) {
+                    noResultsElement.style.display = 'block';
+                } else {
+                    noResultsElement.style.display = 'none';
+                }
+
+                data.forEach(member => {
+                    const card = `
+                        <a href="suggest.html?id=${member.id}" class="block card-hover">
+                            <div class="glass-panel rounded-xl p-4 h-full flex flex-col justify-between border border-transparent hover:border-cyan-400">
+                                <div>
+                                    <p class="text-sm text-gray-300">${member.id}</p>
+                                    <h3 class="font-bold text-lg text-white truncate" title="${member.name}">${member.name}</h3>
+                                </div>
+                                <div class="mt-2">
+                                    <p class="text-sm text-gray-300 truncate" title="${member.department}">${member.department}</p>
+                                    <p class="text-sm font-semibold text-cyan-400 mt-1">${member.jobTitle}</p>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+                    memberListContainer.insertAdjacentHTML('beforeend', card);
+                });
+                memberCountElement.textContent = `対象者: ${data.length}名`;
+            }
+
+            // フィルタリングとソートを適用して再描画する
+            function updateView() {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                const filtered = members.filter(member => {
+                    if (!searchTerm) return true;
+                    const name = member.name || '';
+                    const department = member.department || '';
+                    const jobTitle = member.jobTitle || '';
+                    
+                    return (
+                        name.toLowerCase().includes(searchTerm) ||
+                        department.toLowerCase().includes(searchTerm) ||
+                        jobTitle.toLowerCase().includes(searchTerm)
+                    );
+                });
+                
+                const sorted = sortData(filtered, currentSort);
+                renderMembers(sorted);
+            }
+
+            // ソート処理
+            function sortData(data, sortConfig) {
+                const { key, order } = sortConfig;
+                return [...data].sort((a, b) => {
+                    let valA = a[key];
+                    let valB = b[key];
+
+                    if (valA === null || valA === undefined) valA = '';
+                    if (valB === null || valB === undefined) valB = '';
+
+                    if (typeof valA === 'number' && typeof valB === 'number') {
+                        return order === 'asc' ? valA - valB : valB - valA;
+                    } else {
+                        return order === 'asc' 
+                            ? String(valA).localeCompare(String(valB), 'ja')
+                            : String(valB).localeCompare(String(valA), 'ja');
+                    }
+                });
+            }
+            
+            // 検索イベント
+            searchInput.addEventListener('input', updateView);
+
+            // ソートボタンのイベント
+            sortButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const sortKey = button.dataset.sort;
+
+                    if (currentSort.key === sortKey) {
+                        currentSort.order = currentSort.order === 'asc' ? 'desc' : 'asc';
+                    } else {
+                        currentSort.key = sortKey;
+                        currentSort.order = 'asc';
+                    }
+                    
+                    // アクティブなボタンのスタイルを更新
+                    sortButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    updateView(); // 表示を更新
+                });
+            });
+
+            // 初期化処理
+            function initialize() {
+                loadingElement.style.display = 'none';
+                updateView();
+            }
+
+            initialize();
+        });
+    </script>
+</body>
+</html>
