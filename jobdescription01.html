@@ -41,14 +41,22 @@
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
         }
 
-        /* ボタンのホバーエフェクト */
+        /* マテリアルデザイン風ボタン */
         .btn-hover {
-            transition: all 0.2s ease-in-out;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #f5f5f5;
+            color: #000000;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .btn-hover:hover {
             transform: translateY(-2px);
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background: #e0e0e0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .btn-hover:active {
+            transform: translateY(0);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
         }
     </style>
 </head>
@@ -57,9 +65,11 @@
     <!-- ヘッダー -->
     <header class="glass-panel sticky top-0 z-50 mb-8">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
+            <div class="flex justify-center items-center py-4">
                 <h1 class="text-xl sm:text-2xl font-bold text-white">BP職</h1>
-                <button onclick="window.location.href='https://nikaishimpei.github.io/calipList/jobdescription.html'" class="glass-panel text-white font-semibold py-2 px-4 rounded-lg btn-hover">
+            </div>
+            <div class="flex justify-center items-center py-2">
+                <button onclick="window.location.href='https://nikaishimpei.github.io/calipList/jobdescription.html'" class="btn-hover font-semibold py-2 px-6 rounded-lg">
                     釣書分析のトップに戻る
                 </button>
             </div>
@@ -399,7 +409,7 @@
     <!-- フッター -->
     <footer class="glass-panel mt-12 py-6">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <button onclick="window.location.href='https://nikaishimpei.github.io/calipList/jobdescription.html'" class="glass-panel text-white font-semibold py-2 px-4 rounded-lg btn-hover">
+            <button onclick="window.location.href='https://nikaishimpei.github.io/calipList/jobdescription.html'" class="btn-hover font-semibold py-2 px-6 rounded-lg">
                 釣書分析のトップに戻る
             </button>
         </div>
